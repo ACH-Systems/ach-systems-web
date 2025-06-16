@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"label"> {
+  isRequired?: boolean;
+}
+
+const { isRequired = false, ...attrs } = Astro.props;
+---
+
+<label
+  {...attrs}
+  class:list={[
+    isRequired ? "after:text-red-600 after:content-['_*']" : "",
+    attrs.class,
+    attrs["class:list"],
+  ]}
+>
+  <slot />
+</label>

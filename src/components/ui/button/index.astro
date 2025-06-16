@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  bgColor?: string;
+  textColor?: string;
+}
+
+const {
+  bgColor = "bg-white",
+  textColor = "text-black",
+  ...attrs
+} = Astro.props;
+---
+
+<button
+  {...attrs}
+  class="group relative cursor-pointer overflow-hidden rounded border-2 p-3"
+>
+  <span
+    class:list={[
+      "absolute inset-0 transition-all duration-200",
+      "group-hover:brightness-90 group-active:brightness-80",
+      bgColor,
+    ]}></span>
+  <span class:list={["relative z-2 text-xl font-bold", textColor]}
+    ><slot /></span
+  >
+</button>

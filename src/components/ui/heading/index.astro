@@ -1,0 +1,114 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { FontSize } from "~types";
+
+interface Props
+  extends HTMLAttributes<"h1" | "h2" | "h3" | "h4" | "h5" | "h6"> {
+  size?: Exclude<FontSize, "5xl" | "6xl" | "7xl" | "8xl" | "9xl">;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}
+
+const { as = "h1", size, ...attrs } = Astro.props;
+
+const fontSize: Partial<Record<FontSize, string>> = {
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-base",
+  lg: "text-lg",
+  xl: "text-xl",
+  "2xl": "text-2xl",
+  "3xl": "text-3xl",
+  "4xl": "text-4xl",
+};
+---
+
+{
+  as === "h1" && (
+    <h1
+      class:list={[
+        "text-4xl font-bold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h1>
+  )
+}
+{
+  as === "h2" && (
+    <h1
+      class:list={[
+        "text-3xl font-bold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h1>
+  )
+}
+{
+  as === "h3" && (
+    <h1
+      class:list={[
+        "text-2xl font-bold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h1>
+  )
+}
+{
+  as === "h4" && (
+    <h4
+      class:list={[
+        "text-xl font-semibold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h4>
+  )
+}
+{
+  as === "h5" && (
+    <h5
+      class:list={[
+        "text-lg font-semibold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h5>
+  )
+}
+{
+  as === "h6" && (
+    <h6
+      class:list={[
+        "text-sm font-semibold",
+        size && fontSize[size],
+        attrs.class,
+        attrs["class:list"],
+      ]}
+      {...attrs}
+    >
+      <slot />
+    </h6>
+  )
+}

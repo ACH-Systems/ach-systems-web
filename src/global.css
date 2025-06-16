@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto.ttf");
+}
+
+/* @theme {
+  --default-font-family: "Roboto", sans-serif;
+  --color-primary: #222222;
+  --color-secondary: #393939;
+  --color-accent: #b09100;
+  --color-feature: #3a007c;
+  --color-hightlight: #eae7f6;
+} */
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-primary: oklch(0.252 0 0);
+  --color-secondary: oklch(0.3446 0 0);
+  --color-accent: oklch(0.6657 0.1364 93.63);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}

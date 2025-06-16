@@ -1,0 +1,156 @@
+---
+import { Mail } from "@lucide/astro";
+import { Instagram, LinkedIn, Telegram, WhatsApp } from "~assets/icons";
+import { HeroSmall } from "~assets/img";
+import { Layout } from "~components";
+import {
+  Article,
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Image,
+  Section,
+} from "~components/ui";
+---
+
+<Layout>
+  <Section
+    class="flex w-screen flex-col items-center justify-center gap-x-10 px-10 py-15 md:flex-row"
+  >
+    <Article class="flex w-full flex-col items-center text-center md:order-2">
+      <Heading class="mb-5 text-center">CONTACTO DIRECTO:</Heading>
+      <Image
+        src={HeroSmall}
+        alt=""
+        loading="eager"
+        class="mb-5 rounded shadow-sm"
+      />
+      <Heading as="h2" class="mb-5 text-center">ENCUENTRANOS EN:</Heading>
+      <Grid class="grid-cols-5 gap-x-10">
+        <a href="https://www.instagram.com/achsystems" class="inline-flex">
+          <Button
+            bgColor="bg-gradient-to-tr from-yellow-500 via-pink-600 to-blue-500"
+          >
+            <Flex class="flex items-center justify-center">
+              <Instagram class="size-8 fill-white" />
+            </Flex>
+          </Button>
+        </a>
+        <a href="https://wa.me/+584246375061">
+          <Button bgColor="bg-[#128c7e]">
+            <Flex class="flex items-center justify-center">
+              <WhatsApp class="size-8 fill-white" />
+            </Flex>
+          </Button>
+        </a>
+        <a href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/">
+          <Button bgColor="bg-[#0a66c2]">
+            <Flex class="flex items-center justify-center">
+              <LinkedIn class="size-8 fill-white" />
+            </Flex>
+          </Button>
+        </a>
+        <a href="https://t.me/achsystems">
+          <Button bgColor="bg-[#0088cc]">
+            <Flex class="flex items-center justify-center">
+              <Telegram class="size-8 fill-white" />
+            </Flex>
+          </Button>
+        </a>
+        <a href="mailto:achsystems@hotmail.com">
+          <Button bgColor="bg-gray-600">
+            <Flex class="flex items-center justify-center">
+              <Mail class="size-8 text-white" />
+            </Flex>
+          </Button>
+        </a>
+      </Grid>
+      <Flex
+        class:list={[
+          "w-full border-t border-dashed border-neutral-600",
+          "md:hidden",
+        ]}
+      />
+    </Article>
+    <Article class="flex w-full flex-col md:order-1">
+      <form
+        action="https://formspree.io/f/xkgbrojp"
+        method="POST"
+        class="flex flex-col"
+      >
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend"
+            >Nombre completo o nombre de la empresa</legend
+          >
+          <input
+            name="Nombre completo o nombre de la empresa"
+            type="text"
+            class="input w-full border-neutral-600"
+            required
+          />
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Correo electrónico</legend>
+          <input
+            name="Correo electrónico"
+            type="email"
+            class="input w-full border-neutral-600"
+            required
+          />
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Número de teléfono</legend>
+          <input
+            name="Número de teléfono"
+            type="tel"
+            class="input w-full border-neutral-600"
+            required
+          />
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Motivo de solicitud</legend>
+
+          {
+            [
+              "Sistema para Empresa Personal",
+              "Sistema de Gestión",
+              "Sistema Médico / Consultorio / Historias Médicas",
+              "Sistema Administrativo",
+              "Otro / Necesito Asesoría",
+            ].map((option, optionIndex) => {
+              const id = optionIndex + 1;
+              return (
+                <div>
+                  <label for={`motive-${id}`} class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="Motivo de solicitud"
+                      id={`motive-${id}`}
+                      value={option}
+                      class="radio mr-2 border-neutral-600"
+                    />
+                    {option}
+                  </label>
+                </div>
+              );
+            })
+          }
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Comentenos un poco más</legend>
+          <textarea
+            name="Comentenos un poco más"
+            class="textarea w-full border-black"></textarea>
+        </fieldset>
+
+        <button class="btn btn-accent mt-3 text-white">Enviar</button>
+      </form>
+      <Article />
+    </Article>
+  </Section>
+</Layout>

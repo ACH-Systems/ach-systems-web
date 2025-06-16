@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"aside"> {}
+
+const { ...attrs } = Astro.props;
+---
+
+<aside {...attrs}>
+  <slot />
+</aside>

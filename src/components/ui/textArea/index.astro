@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"textarea"> {}
+
+const { ...attrs } = Astro.props;
+---
+
+<textarea
+  class:list={[
+    "border-2 p-3 transition-colors duration-300 outline-none",
+    "invalid:border-red-600 focus:border-blue-600",
+    attrs.class,
+    attrs["class:list"],
+  ]}
+  {...attrs}></textarea>

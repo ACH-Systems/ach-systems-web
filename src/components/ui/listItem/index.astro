@@ -1,0 +1,9 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {}
+
+const { ...attrs } = Astro.props;
+---
+
+<li {...attrs}><slot /></li>

@@ -1,0 +1,76 @@
+---
+import { Content, Footer, Header } from ".";
+import "../global.css";
+
+const { title = "ACH SYSTEMS" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="x-icon/ico" href="../src/assets/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="../src/assets/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white">
+    <Header />
+    <div
+      id="blur"
+      class="pointer-events-none fixed z-2 size-full transition-all duration-200"
+    >
+    </div>
+    <div class="flex min-h-screen flex-col">
+      <div class="flex flex-grow">
+        <Content>
+          <slot />
+        </Content>
+      </div>
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<script>
+  import { isAccordionOpen } from "../stores";
+
+  const blur = document.querySelector("#blur");
+  const body = document.querySelector("body");
+  const isMdScreen = window.matchMedia("(min-width: 768px)");
+
+  function disableBlur() {
+    blur?.classList.add("pointer-events-none");
+    blur?.classList.remove(
+      "pointer-events-auto",
+      "backdrop-blur-xs",
+      "bg-black/50",
+    );
+    body?.classList.remove("overflow-hidden");
+  }
+
+  isAccordionOpen.subscribe((value) => {
+    if (value) {
+      blur?.classList.add(
+        "pointer-events-auto",
+        "backdrop-blur-xs",
+        "bg-black/50",
+      );
+      blur?.classList.remove("pointer-events-none");
+      body?.classList.add("overflow-hidden");
+    } else disableBlur();
+  });
+
+  blur?.addEventListener("click", function () {
+    if (isAccordionOpen.get()) {
+      isAccordionOpen.set(false);
+      disableBlur();
+    }
+  });
+
+  isMdScreen.addEventListener("change", function () {
+    if (isMdScreen.matches) blur?.classList.add("hidden");
+    else blur?.classList?.remove("hidden");
+    isAccordionOpen.set(false);
+  });
+</script>

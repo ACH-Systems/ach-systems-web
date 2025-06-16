@@ -1,0 +1,352 @@
+---
+import {
+  ChartLine,
+  ClipboardPlus,
+  Palette,
+  Pencil,
+  Save,
+  ShoppingCart,
+  SquareStack,
+  Stethoscope,
+} from "@lucide/astro";
+import {
+  Hero,
+  HomeAside1,
+  HomeAside2,
+  HomeAside3,
+  HomeAside4,
+} from "~assets/img";
+import { Layout } from "~components";
+import {
+  Article,
+  Aside,
+  Box,
+  Button3D,
+  Flex,
+  Grid,
+  Heading,
+  Image,
+  Paragraph,
+  Section,
+  Text,
+} from "~components/ui";
+
+const services = [
+  {
+    title: "Sistemas de Gestión",
+    icon: ChartLine,
+    description:
+      "Brindamos una solución ideal para que usted inicie su recorrido en esta nueva era digital, con sistemas únicos para la gestión de su comercio, brindando confort y aumentando la productividad.",
+  },
+  {
+    title: "Sistemas Personalizados",
+    icon: Save,
+    description:
+      "Nuestro equipo está capacitado para diseñarle sistemas a la medida, totalmente exclusivos y adaptados a los conocimientos de sus empleados, otorgándole manejabilidad y adaptabilidad.",
+  },
+  {
+    title: "Diseño de Sistemas",
+    icon: Pencil,
+    description:
+      "Contamos con especialistas en diseño y análisis de sistemas, permitiéndole a usted tener un proyecto único, proporcionando funcionalidad y apariencia acordes a su labor, sin descuidar la identidad organizativa.",
+  },
+  {
+    title: "Asesorías Gratuitas",
+    icon: Palette,
+    description:
+      "Si usted no posee conocimientos en referencia a los requerimientos necesarios para automatizar su organización, puede solicitar ahora mismo una visita totalmente gratuita. Nuestros asesores están complacidos de aclarar sus preguntas.",
+  },
+  {
+    title: "Sistemas para Historias Médicas",
+    icon: ClipboardPlus,
+    description:
+      "Contamos con personal capacitado en el área de la salud, los cuales pueden brindarle soluciones ideales para optimizar sus labores diarias, además realizamos sistemas dedicados exclusivamente para la elaboración de historias médicas.",
+  },
+  {
+    title: "Sistemas para Consultorios Médicos",
+    icon: Stethoscope,
+    description:
+      "Conocemos la importancia de mantener un correcto registro para facilitar la atención a sus pacientes, por ello diseñamos sistemas según su especialidad médica permitiéndole a usted contar con un registro automatizado de sus servicios.",
+  },
+  {
+    title: "Sistemas Administrativos",
+    icon: SquareStack,
+    description:
+      "¿Su empresa pertenece al comercio informal y desea llevar el registro de sus ventas?  Contamos con proyectos ideales para ello,  nos adaptamos al tamaño de su comercio y diseñamos sistemas administrativos simples y manejables.",
+  },
+  {
+    title: "Sistemas para Emprendedores",
+    icon: ShoppingCart,
+    description:
+      "Si eres emprendedor y estás iniciando en el mundo digital, tenemos sistemas ideales para ti, puedes tener tu negocio Online basado en plantillas pre diseñadas  y así impulsarte al siguiente nivel, adaptándonos a tu presupuesto.",
+  },
+];
+---
+
+<Layout>
+  <Section>
+    <Image
+      src={Hero}
+      alt="[ACH systems]"
+      loading="eager"
+      class:list={["h-full w-full", "md:h-[calc(100vh-60px)]"]}
+    />
+  </Section>
+
+  <Section class="py-16">
+    <Heading
+      class="text-accent pb-12 text-center text-5xl font-extrabold uppercase"
+      >Descubre nuestros servicios</Heading
+    >
+    <Grid class="grid-cols-2 gap-7 px-5">
+      {
+        services.map((service) => (
+          <Article>
+            <Flex class="mb-1 flex-row items-center">
+              {service.icon && <service.icon class="mr-2 size-7" />}
+              <Heading as="h3">{service.title}</Heading>
+            </Flex>
+            <Paragraph class="text-justify">{service.description}</Paragraph>
+          </Article>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section class="bg-neutral-400 py-20 text-white">
+    <Box class="bg-primary mx-5 border-1 border-neutral-500 p-5">
+      <Box class="border-1 border-neutral-500 p-8 px-20">
+        <Flex class="flex-col justify-center text-center">
+          <Heading class="mb-6 text-5xl/15">
+            ¿Deseas saber más de nuestros servicios?
+          </Heading>
+          <a href="./contacto/">
+            <Button3D>Haz click aquí</Button3D>
+          </a>
+        </Flex>
+      </Box>
+    </Box>
+  </Section>
+
+  <Section class="flex flex-col justify-center py-20">
+    <Flex class="mb-10 flex-col gap-6 text-center">
+      <Heading class="text-5xl">
+        ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
+      </Heading>
+      <Heading class="text-accent text-5xl">O</Heading>
+      <Heading class="text-5xl">
+        ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
+      </Heading>
+    </Flex>
+    <Article class="mb-14 px-6 text-justify text-lg">
+      <Paragraph class="mb-4">
+        Si, es cierto... Una empresa productiva no puede detenerse, pero ¿quién
+        dijo que necesita hacerlo para mejorar?... Ahhh espere, usted tiene
+        miedo a no adaptarse rápidamente al nuevo método de gestión para sus
+        servicios.
+      </Paragraph>
+      <Paragraph>
+        No se preocupe, tenemos especialistas en diseños simples, únicos y
+        adaptados a su medida sin necesidad de un manual con cientos de páginas,
+        además tenemos soporte personalizado y si no posee conocimiento alguno
+        en referencia a tecnología o informática, contamos con sistemas
+        totalmente intuitivos, cómodos y diseñados para ser manejados con la
+        mínima experiencia tecnológica, ahorrando costos de operatividad,
+        reduciendo tiempos de espera y aumentando la eficiencia de su negocio.
+      </Paragraph>
+    </Article>
+    <a href="./contacto/">
+      <Button3D color="bg-neutral-500" class="w-50 text-white"
+        >¡Deseo automatizarme!</Button3D
+      >
+    </a>
+  </Section>
+
+  <Section class="relative h-screen overflow-hidden">
+    <Box
+      class:list={[
+        "parallax-bg",
+        "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg1.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
+      ]}
+    />
+    <Flex class="absolute inset-0 mx-10 items-center justify-center">
+      <Heading class="text-center text-6xl/30 text-white uppercase">
+        <Text class="bg-black/50 px-3"
+          >EVITA PERDER EL ÓRDEN DE LAS HISTORIAS DE SUS PACIENTES</Text
+        >
+      </Heading>
+    </Flex>
+  </Section>
+
+  <Section class="py-20">
+    <Grid class="grid-cols-2 items-center gap-8 px-10">
+      <Article class="flex flex-col justify-center">
+        <Heading class="mb-10 text-center leading-12 uppercase"
+          >&ldquo;Soy personal del área de salud y pienso que las <Text
+            class="text-accent">historias médicas manuales</Text
+          > son mas sencillas&rdquo;</Heading
+        >
+        <Paragraph class="mb-5 text-justify text-lg"
+          >Contamos con un equipo especializado en el diseño de sistemas
+          totalmente accesibles para el personal de salud, especialmente en
+          formatos para historias médicas según la especialidad, además de
+          sustentarnos por diversos trabajos libres presentados en el Congreso
+          de Ingenieros Zulia 2024 “Ing. Emilio López” y próximamente en el
+          Congreso Científico Internacional de la facultad de medicina, “Dr.
+          Eduardo Mora La Cruz”.</Paragraph
+        >
+        <Paragraph class="mb-8 text-center text-lg font-semibold"
+          >¿Desea Conocerlo?</Paragraph
+        >
+        <a href="./proyectos/">
+          <Button3D color="bg-neutral-300">Mira el artículo aquí</Button3D>
+        </a>
+      </Article>
+      <Aside class="flex flex-col gap-4">
+        <Image
+          src={HomeAside1}
+          alt=""
+          loading="eager"
+          class="w-full rounded-xl shadow-sm"
+        />
+        <Image
+          src={HomeAside2}
+          alt=""
+          loading="eager"
+          class="w-full rounded-xl shadow-sm"
+        />
+      </Aside>
+    </Grid>
+  </Section>
+
+  <Section class="relative h-screen overflow-hidden">
+    <Box
+      class:list={[
+        "parallax-bg",
+        "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg2.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
+      ]}
+    />
+    <Flex class="absolute inset-0 mx-10 flex-col items-center justify-center">
+      <Heading class="text-center text-6xl/30 text-white uppercase">
+        <Text class="bg-black/50 px-3">EVITA EL DESASTRE EN PAPEL</Text>
+      </Heading>
+      <Heading class="text-center text-6xl/30 text-white uppercase">
+        <Text class="bg-black/50 px-3">&lt;&lt; AUTOMATIZATE YA &gt;&gt;</Text>
+      </Heading>
+    </Flex>
+  </Section>
+
+  <Section class="py-20">
+    <Grid class="grid-cols-2 items-center gap-8 px-10">
+      <Aside
+        ><Image
+          src={HomeAside3}
+          alt=""
+          loading="eager"
+          class="w-full rounded-xl"
+        />
+      </Aside>
+      <Article class="flex flex-col justify-center">
+        <Heading class="mb-10 text-center leading-12 uppercase">
+          &ldquo;Tengo un comercio y deseo un <Text class="text-accent"
+            >sistema sólo de recibos e inventarios</Text
+          >&rdquo;
+        </Heading>
+        <Paragraph class="mb-10 text-justify text-lg">
+          Usted se encuentra en el lugar correcto, para nadie es un secreto que
+          en la mayoría de los Software administrativos existen cientos de
+          botones y funcionalidades que no quedan muy claras, no son viables
+          para pequeños comercios y no poseen una adaptación personalizada. Con
+          nuestros sistemas todo eso queda atrás. Las fórmulas de Excel tienden
+          a errores humanos cuando no se aplican correctamente, es por ello que
+          contar con un sistema a la medida de tu negocio generará un entorno
+          productivo y eficaz. Según la funcionalidad que desee, nuestros
+          ingenieros adaptarán módulos ideales para su nivel de manejabilidad.
+        </Paragraph>
+        <a href="./contacto/">
+          <Button3D color="bg-neutral-300">Consulta aquí</Button3D>
+        </a>
+      </Article>
+    </Grid>
+  </Section>
+
+  <Section class="relative h-[75vh] overflow-hidden">
+    <Box
+      class:list={[
+        "parallax-bg",
+        "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg3.webp')] bg-cover bg-fixed bg-center sepia",
+      ]}
+    />
+    <Flex class="absolute inset-0 mx-10 items-center justify-center">
+      <Heading class="text-center text-6xl/30 text-white uppercase">
+        <Text class="bg-black/50 px-3"
+          >¿USTED TIENE DIFICULTAD PARA UTILIZAR LAS FUNCIONES BÁSICAS DE SU
+          TELÉFONO?
+        </Text>
+      </Heading>
+    </Flex>
+  </Section>
+
+  <Section class="bg-neutral-300">
+    <Article
+      class="flex flex-col items-center justify-center gap-15 p-20 text-center"
+    >
+      <Heading class="text-6xl/20 !font-light"
+        >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</Heading
+      >
+      <Heading class="text-accent italic"
+        >Tan fácil como utilizar su celular.</Heading
+      >
+      <Heading class="text-6xl">¿Aún no se decide?</Heading>
+      <a href="./contacto/">
+        <Button3D color="bg-neutral-600 text-white"
+          >SOLICITA TU ASESORÍA YA</Button3D
+        >
+      </a>
+    </Article>
+  </Section>
+
+  <Section class="py-20">
+    <Grid class="grid-cols-2 items-center gap-4 px-10">
+      <Article class="flex flex-col justify-center">
+        <Heading class="mb-10 text-center leading-12 uppercase"
+          >&ldquo;<Text class="text-accent"
+            >No tengo idea de lo que necesito</Text
+          > para automaticar mis actividades&rdquo;</Heading
+        >
+        <Paragraph class="mb-10 text-justify text-lg">
+          ¡No se preocupe! Tenemos asesoria gratuita, sólo debe llenar el
+          formulario de contacto y podrá agendar una de nuestras visitas
+          técnicas. Si desea realizar el proceso de forma rápida, puede
+          contactarnos a través de nuestros teléfonos, redes sociales o correo
+          electrónico y le enviaremos un ingeniero capacitado para determinar e
+          indicarle los requerimientos para un sistema adaptado a las
+          necesidades de su negocio, según el equipo que maneje y el
+          conocimiento de su personal.
+        </Paragraph>
+        <a href="./contacto/">
+          <Button3D color="bg-neutral-300">Contáctanos</Button3D>
+        </a>
+      </Article>
+      <Aside class="flex items-center justify-center"
+        ><Image
+          src={HomeAside4}
+          alt=""
+          loading="eager"
+          class="w-full rounded-xl"
+        />
+      </Aside>
+    </Grid>
+  </Section>
+</Layout>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const parallaxElements = document.querySelectorAll(".parallax-bg");
+    parallaxElements.forEach((element) => {
+      let scrollPosition = window.pageYOffset;
+      (element as HTMLElement).style.backgroundPosition =
+        `center ${scrollPosition * 0.005}px`;
+    });
+  });
+</script>

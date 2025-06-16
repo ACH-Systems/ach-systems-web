@@ -1,0 +1,53 @@
+---
+import { Layout } from "~components";
+import { Box, Flex, Grid, Heading } from "~components/ui";
+---
+
+<Layout>
+  <Box class="p-4">
+    <Heading as="h2" class="pb-5 text-center"
+      >Nuestro portafolio de proyectos</Heading
+    >
+    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" , />
+    <Grid
+      class:list={[
+        "gap-5",
+        "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+      ]}
+    >
+      <a href="./sistema-web-laboratorio-hinestroza-ferrer/">
+        <div
+          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-10 text-center shadow-md"
+        >
+          <figure>
+            <img
+              src="../src/assets/img/proyectos/sistema-web-laboratorio-hinestroza-ferrer-thumb.jpg"
+              alt=""
+              class="h-40 w-full max-w-xs rounded-xl"
+            />
+          </figure>
+          <h2 class="text-xl font-light">
+            Sistema de Información Web para la Gestión de Servicios en el
+            Clínico Hinestroza Ferrer C.A
+          </h2>
+        </div>
+      </a>
+      <a href="./sistema-historial-medico-los-olivos/">
+        <div
+          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-10 text-center shadow-md"
+        >
+          <figure>
+            <img
+              src="../src/assets/img/proyectos/sistema-historial-medico-los-olivos.jpg"
+              alt=""
+              class="h-40 w-full max-w-xs rounded-xl"
+            />
+          </figure>
+          <h2 class="text-xl font-light">
+            Sistema de Historial Médico - Centro Clínico Los Olivos
+          </h2>
+        </div>
+      </a>
+    </Grid>
+  </Box>
+</Layout>

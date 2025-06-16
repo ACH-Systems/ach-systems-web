@@ -1,0 +1,235 @@
+---
+import { Clock, Mail, Menu } from "@lucide/astro";
+import { Image } from "astro:assets";
+import { Instagram, LinkedIn, WhatsApp } from "~assets/icons";
+import { Logo } from "~assets/img";
+import { navItems } from "./navItems";
+
+const EMAIL_ADDRESS = "achsystems@hotmail.com";
+const PHONE_NUMBER = "+58 424-637-5061";
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="fixed z-5">
+  <header
+    class:list={[
+      "bg-primary/100 transition-bg flex w-screen flex-col text-white shadow-md backdrop-blur-[3px] duration-200",
+    ]}
+  >
+    <div
+      class="bg-secondary relative overflow-hidden border-b-1 border-neutral-500 px-3 py-1 text-white"
+    >
+      <div
+        class="absolute inset-0 z-0 bg-[url('../src/assets/img/pattern.png')]"
+      >
+      </div>
+      <div class="relative z-1 flex items-center justify-between">
+        <div class="flex flex-row items-center">
+          <Clock class="mr-2 size-5" />
+          <span class="text-xs">Atención de 8 AM a 8 PM</span>
+        </div>
+        <div class="flex flex-row items-center gap-2">
+          <a
+            aria-label="Teléfono"
+            href={`https://wa.me/${PHONE_NUMBER.replace(/\s|-/g, "")}`}
+            class="flex flex-row items-center"
+          >
+            <WhatsApp class:list={["m-0 size-5 fill-white", "md:mr-2"]} />
+            <span class:list={["hidden text-xs", "md:block"]}
+              >{PHONE_NUMBER}</span
+            >
+          </a>
+          <a
+            aria-label="E-mail"
+            href={`mailto:${EMAIL_ADDRESS}`}
+            class="flex flex-row items-center"
+          >
+            <Mail class="m-0 md:mr-2" />
+            <span class:list={["hidden text-xs", "md:block"]}
+              >{EMAIL_ADDRESS}</span
+            >
+          </a>
+          <div
+            class:list={[
+              "mx-1 hidden h-6 border-l border-dotted border-white",
+              "md:block",
+            ]}
+          >
+          </div>
+          <a
+            aria-label="Instagram"
+            href="https://www.instagram.com/achsystems"
+            class="flex flex-row items-center"
+          >
+            <Instagram class:list={["m-0 size-5 fill-white"]} />
+          </a>
+          <a
+            aria-label="LinkedIn"
+            href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/"
+            class="flex flex-row items-center"
+          >
+            <LinkedIn class:list={["m-0 size-5 fill-white"]} />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class:list={[
+        "flex flex-wrap justify-between px-4",
+        "md:px-10 lg:px-20 xl:px-40 2xl:px-80",
+      ]}
+    >
+      <div class:list={["flex w-17", "md:hidden"]}></div>
+      <a href="/">
+        <Image
+          src={Logo}
+          alt="[ACH systems]"
+          loading="eager"
+          class:list={["w-25 self-center py-3", "md:w-30 md:py-4"]}
+        />
+      </a>
+      <div
+        class:list={[
+          "hidden flex-row flex-wrap items-center justify-center",
+          "md:flex",
+        ]}
+      >
+        {
+          navItems.slice(0, navItems.length - 1).map((item) => (
+            <a
+              draggable={false}
+              href={item.path}
+              class:list={[
+                "shadow-accent group flex h-full flex-col items-center text-center transition-all duration-200 select-none",
+                "active:bg-neutral-600/50",
+              ]}
+            >
+              <span class="flex items-center px-6 pt-8">
+                <span
+                  class:list={[
+                    item.path === currentPath ? "mr-2 inline-block" : "hidden",
+                  ]}
+                >
+                  &#9656;
+                </span>
+                <span>{item.name}</span>
+              </span>
+              <span
+                class:list={[
+                  "bg-accent mt-auto h-1 w-0 transition-all duration-200 group-hover:w-full",
+                  "group-active:bg-white",
+                ]}
+              />
+            </a>
+          ))
+        }
+        <div
+          class:list={[
+            "relative ml-3 cursor-pointer border-none bg-transparent p-0",
+          ]}
+        >
+          <span
+            class:list={[
+              "bg-accent absolute top-0 left-0 h-full w-full rounded-full brightness-80",
+            ]}></span>
+          <a href="/contacto/">
+            <button
+              class:list={[
+                "bg-accent relative block -translate-y-[6px] cursor-pointer rounded-full px-6 py-3 text-[1.25rem] text-white transition-all duration-100 select-none",
+                "hover:-translate-y-[8px] hover:brightness-110 hover:duration-600",
+                "active:-translate-y-1 active:duration-30",
+              ]}
+            >
+              Contáctanos
+            </button>
+          </a>
+        </div>
+      </div>
+      <button
+        class:list={[
+          "toggle-accordion",
+          "m-2 cursor-pointer rounded p-2 transition-all duration-200",
+          "active:bg-neutral-500/50",
+          "md:hidden",
+        ]}
+      >
+        <Menu class="size-8" />
+      </button>
+    </div>
+  </header>
+  <nav
+    class:list={[
+      "ease bg-primary/100 flex flex-col overflow-hidden border-t-1 border-neutral-500 text-white shadow-md transition-all duration-300",
+      "md:hidden",
+    ]}
+  >
+    {
+      navItems.map((item) => (
+        <a
+          href={item.path}
+          draggable={false}
+          class:list={[
+            "block w-full border-dashed border-neutral-700 p-6 text-left text-xl transition-all duration-200 select-none active:bg-neutral-600/50",
+            "not-last:border-b-1",
+          ]}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+</div>
+
+<script>
+  import { isAccordionOpen, isHeaderTransparent } from "../../stores";
+
+  let nav = document.querySelector("nav");
+  let header = document.querySelector("header");
+
+  document.querySelector(".toggle-accordion")?.addEventListener("click", () => {
+    isAccordionOpen.set(!isAccordionOpen.get());
+  });
+
+  isAccordionOpen.subscribe((value) => {
+    if (nav) {
+      nav.classList.toggle("max-h-300", value);
+      nav.classList.toggle("max-h-0", !value);
+    }
+    if (value) {
+      header?.classList.add("bg-primary/100");
+      header?.classList.remove("bg-primary/75");
+      isHeaderTransparent.set(false);
+    } else if (window.scrollY > 0 && !value) {
+      header?.classList.add("bg-primary/100");
+      header?.classList.remove("bg-primary/75");
+      isHeaderTransparent.set(true);
+    }
+  });
+
+  document.addEventListener("scroll", function () {
+    if (window.scrollY > 0 && !isAccordionOpen.get()) {
+      header?.classList.add("bg-primary/75");
+      header?.classList.remove("bg-primary/100");
+      isHeaderTransparent.set(true);
+    } else {
+      header?.classList.add("bg-primary/100");
+      header?.classList.remove("bg-primary/75");
+      isHeaderTransparent.set(false);
+    }
+  });
+
+  header?.addEventListener("mouseenter", function () {
+    if (isHeaderTransparent.get()) {
+      header?.classList.add("bg-primary/100");
+      header?.classList.remove("bg-primary/75");
+    }
+  });
+
+  header?.addEventListener("mouseleave", function () {
+    if (isHeaderTransparent.get()) {
+      header?.classList.add("bg-primary/75");
+      header?.classList.remove("bg-primary/100");
+    }
+  });
+</script>

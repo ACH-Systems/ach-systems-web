@@ -1,0 +1,127 @@
+---
+import { ChevronLeft, ChevronRight, CircleSmall, Dot } from "@lucide/astro";
+import { Layout } from "~components";
+import {
+  Box,
+  Button3D,
+  Flex,
+  Heading,
+  Paragraph,
+  Section,
+} from "~components/ui";
+
+const images = Array.from({ length: 8 });
+---
+
+<Layout>
+  <Box class="flex w-screen flex-col items-center justify-center p-4">
+    <Heading as="h2" class="pb-7 text-center">
+      Sistema de Historial Médico - Centro Clínico Los Olivos
+    </Heading>
+    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" />
+    <section
+      class="relative flex max-w-400 flex-col items-center justify-center"
+    >
+      <div
+        id="carousel"
+        data-images={`${images.length}`}
+        class="carousel relative w-full max-w-250"
+      >
+        {
+          images.map((_, index) => (
+            <div id={String(index)} class="carousel-item relative w-full">
+              <img
+                src={`../../src/assets/img/proyectos/sistema-historial-medico-los-olivos/${index}.jpg`}
+                class="w-full rounded-lg px-1"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 top-1/2 flex -translate-y-1/2 transform justify-between px-5"
+      >
+        <button class="prev-btn btn btn-circle"><ChevronLeft /></button>
+        <button class="next-btn btn btn-circle"><ChevronRight /></button>
+      </div>
+      <div class="mt-2 flex justify-center gap-3">
+        {
+          images.map((_, index) => (
+            <button class="indicator-btn" data-index={index}>
+              <CircleSmall class="cursor-pointer text-neutral-600" />
+            </button>
+          ))
+        }
+      </div>
+    </section>
+    <Section class="my-10 flex flex-col gap-3 text-justify">
+      <Paragraph
+        >Este sistema de historial médico fue diseñado para garantizar
+        simplicidad e intuitividad, permitiendo que el personal de salud
+        gestione registros clínicos de manera eficiente, sin necesidad de
+        conocimientos avanzados en informática. La estructura jerárquica
+        facilita el acceso a la información según el rol de cada usuario,
+        asegurando un flujo de datos seguro y organizado. Aunque es una
+        plataforma web, cuenta con respaldo local para proteger la información y
+        mantener la operatividad sin interrupciones.
+        <Paragraph
+          >La presentación de cuadros y tablas ha sido adaptada a los requisitos
+          del cliente, brindando una interfaz clara y ordenada. Esto permite la
+          consulta rápida y precisa de datos médicos, mejorando los procesos de
+          administración dentro del centro de salud.</Paragraph
+        >
+      </Paragraph>
+    </Section>
+  </Box>
+  <Section
+    class="flex flex-col items-center justify-center bg-neutral-400 px-15 py-20 text-white"
+  >
+    <Heading class="mb-8 text-center text-black">
+      ¿Te gustaría optar un sistema como éste?
+    </Heading>
+    <a href="../../contacto/">
+      <Button3D>Haz click aquí</Button3D>
+    </a>
+  </Section>
+
+  <script>
+    import { currentImageIndex } from "src/stores";
+
+    const carousel = document.getElementById("carousel");
+    const imagesLength = Number(carousel?.dataset.images) || 0;
+    const indicators = document.querySelectorAll(".indicator-btn");
+
+    document.querySelector(".prev-btn")?.addEventListener("click", () => {
+      let index = currentImageIndex.get();
+      index = index === 0 ? imagesLength - 1 : index - 1;
+      currentImageIndex.set(index);
+    });
+
+    document.querySelector(".next-btn")?.addEventListener("click", () => {
+      let index = currentImageIndex.get();
+      index = index === imagesLength - 1 ? 0 : index + 1;
+      currentImageIndex.set(index);
+    });
+
+    indicators.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = Number((btn as HTMLElement).dataset.index);
+        currentImageIndex.set(index);
+      });
+    });
+
+    currentImageIndex.subscribe((value) => {
+      if (value !== undefined) {
+        const currentScroll = window.scrollY;
+        window.location.href = `#${value}`;
+        window.scrollTo(0, currentScroll);
+        indicators.forEach((btn, index) => {
+          btn.firstElementChild?.classList.toggle(
+            "fill-neutral-600",
+            index === value,
+          );
+        });
+      }
+    });
+  </script>
+</Layout>

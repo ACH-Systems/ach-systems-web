@@ -1,0 +1,174 @@
+---
+import { Nosotros1, Nosotros2, Nosotros3 } from "~assets/img";
+import { Layout } from "~components";
+import {
+  Article,
+  Aside,
+  Box,
+  Button3D,
+  Grid,
+  Heading,
+  Image,
+  List,
+  ListItem,
+  Paragraph,
+  Section,
+} from "~components/ui";
+---
+
+<Layout title="NOSOTROS :: ACH SYSTEMS">
+  <Section class="bg-secondary p-15 text-center">
+    <Box class="border-y border-white py-5">
+      <Heading as="h3" class="text-white italic"
+        >SOMOS LA PRIMERA EMPRESA EN EL ZULIA ENCARGADA DEL DISEÑO DE SISTEMAS
+        PARA GESTIONAR TUS SERVICIOS HECHOS A LA MEDIDA Y AL MEJOR PRECIO.</Heading
+      >
+    </Box>
+  </Section>
+
+  <Section class="pt-15 pb-5">
+    <Grid class="grid-cols-2 items-center gap-8 px-10">
+      <Aside class="order-1 flex justify-center">
+        <Image src={Nosotros1} alt="" loading="eager" class="rounded-xl" />
+      </Aside>
+      <Article class="order-2 flex flex-col justify-center">
+        <Heading as="h2" class="mb-3 text-center">Ing. Aixa Chacín</Heading>
+        <List class="mb-3 flex flex-col gap-2 p-5">
+          {
+            [
+              "Ingeniera de Sistemas.",
+              "Estudiante de Medicina.",
+              "Asistente de Farmacia Avanzado.",
+              "Diseñadora de Marketing Médico",
+            ].map((item) => (
+              <ListItem class="before:content-['🢒_']">{item}</ListItem>
+            ))
+          }
+        </List>
+        <Paragraph class="mb-3 text-justify"
+          >Su aliada ideal en diseños de sistemas y personalización general,
+          especializada en la atención de requerimientos para sistemas médicos.
+          Nuestra ingeniera evalúa qué sistema necesita y realiza modelos base
+          para que tengas interacción total con tu proyecto.</Paragraph
+        >
+        <Paragraph class="text-justify"
+          >Con conocimiento en CCS, JavaScript, Phyton y herramientas de diseño
+          como Photoshop, Adobe Ilustrator, Canvas Pro, entre otras, será tu
+          aliada para plasmar tus ideas y necesidades. Con ella lograrás
+          alcanzar el máximo potencial de tu proyecto e impulsarás tu empresa
+          con tecnología de ultimo momento.</Paragraph
+        >
+      </Article>
+    </Grid>
+  </Section>
+
+  <Section class="py-5">
+    <Grid class="grid-cols-2 items-center gap-8 px-10">
+      <Aside class="order-2 flex justify-center">
+        <Image src={Nosotros2} alt="" loading="eager" class="rounded-xl" />
+      </Aside>
+      <Article class="order-1">
+        <Heading as="h2" class="mb-3 text-center">Ing. Fernando Duarte</Heading>
+        <List class="mb-3 flex flex-col gap-2 p-5">
+          {
+            [
+              "Analista de Sistemas.",
+              "Ingeniero de Sistemas.",
+              "Estudiante de Licenciatura en Computación.",
+              "Desarrollador Web / Escritorio.",
+            ].map((item) => (
+              <ListItem class="before:content-['🢒_']">{item}</ListItem>
+            ))
+          }
+        </List>
+        <Paragraph class="mb-3 text-justify"
+          >Nuestro especialista en el desarrollo e implementación de sistemas
+          ideal para crear soluciones eficientes y funcionales que aumenten la
+          productividad de los usuarios en cada uno de los sistemas que
+          desarrolla, diseñador de Back End con conocimiento en HTML, CSS,
+          JavaScript, PHP, vb.net, C y Phyton, y frameworks como Laravel o React
+          Js, será tu aliado para desarrollar y hacer realidad tus proyectos.</Paragraph
+        >
+      </Article>
+    </Grid>
+  </Section>
+
+  <Section class="pt-5 pb-10">
+    <Grid class="grid-cols-2 items-center gap-8 px-10">
+      <Aside class="order-1 flex justify-center">
+        <Image src={Nosotros3} alt="" loading="eager" class="rounded-xl" />
+      </Aside>
+      <Article class="order-2">
+        <Heading as="h2" class="mb-3 text-center">Ing. Rodolfo López</Heading>
+        <List class="mb-3 flex flex-col gap-2 p-5">
+          {
+            ["Ingeniero de Sistemas.", "Desarrollador Web."].map((item) => (
+              <ListItem class="before:content-['🢒_']">{item}</ListItem>
+            ))
+          }
+        </List>
+        <Paragraph class="mb-3 text-justify"
+          >Nuestro principal programador Frontend con experiencia en el diseño y
+          desarrollo de interfaces web dinámicas con alta eficiencia, además es
+          nuestro especialista en JavaScript y React. Su prioridad es el enfoque
+          para lograr la creación de experiencias interactivas y asi garantizar
+          soluciones precisas e intuitivas adaptadas a las necesidades de cada
+          proyecto. Gracias a su experiencia lograrás tener las dinámicas
+          necesarias para que su página o sistema sea exitoso.</Paragraph
+        >
+      </Article>
+    </Grid>
+  </Section>
+
+  <Section class="mx-10 pt-10 pb-10">
+    <Article class="mb-10 text-justify">
+      <Heading class="text-accent mb-10 text-center uppercase">Misión</Heading>
+      <Paragraph class="mb-3"
+        >Asesorar, diseñar, desarrollar e implementar soluciones de software
+        innovadoras, totalmente personalizadas a cualquier usuario, las cuales
+        permiten automatizar y optimizar procesos que tradicionalmente se
+        realizan de forma manual. Con herramientas de gestión precisas a las
+        necesidades operativas y estratégicas de cada organización, nuestro
+        compromiso es orientado a la satisfacción de nuestros usuarios
+        entregando sistemas de gestión robustos, intuitivos, seguros y de fácil
+        manejo garantizando tanto funcionalidad como escalabilidad, siempre
+        enfocándonos en dos ámbitos principales: primero en las necesidades y
+        luego en los conocimientos de el cliente.</Paragraph
+      >
+      <Paragraph>
+        Todo esto utilizando sistemas de información que logren liberar a
+        nuestros consumidores de tareas repetitivas y propensas a errores,
+        permitiéndoles enfocarse en la productividad, la creatividad y la toma
+        de decisiones con el respaldo de datos precisos en todo momento.
+        Buscamos ser un factor clave en la mejora continua de la eficiencia y la
+        competitividad en el mercado a través de la tecnología y un servicio al
+        cliente excepcional.</Paragraph
+      >
+    </Article>
+    <Article class="text-justify">
+      <Heading class="text-accent mb-10 text-center uppercase">Visión</Heading>
+      <Paragraph class="mb-3">
+        Ser la referencia líder en soluciones de software, actuando como
+        catalizador de la Transformación digital para organizaciones del sector
+        salud y administrativo, al ser reconocidos como el socio tecnológico
+        número uno en la creación de sistemas informáticos para la gestión de
+        distintos servicios que eliminen eficientemente el trabajo manual.
+        Aspiramos a empoderar organizaciones de diversos sectores como son: el
+        área de la salud, el sector administrativo, pequeños y grandes
+        emprendedores entre otros; para que optimicen sus operaciones mediante
+        la automatización total de sus procesos, permitiendo así la toma de
+        decisiones informadas y que dichos usuarios obtengan el alcance de una
+        mayor eficiencia sin precedentes, minimizando errores y liberando el
+        talento humano para tareas de mayor valor estratégico.</Paragraph
+      >
+    </Article>
+  </Section>
+  <Section
+    class="flex flex-col justify-center bg-neutral-300 px-15 py-15 text-center"
+  >
+    <Heading class="mb-10 text-5xl uppercase">¿Deseas contactarnos?</Heading>
+    <a href="./contacto">
+      <Button3D color="bg-neutral-400" class="uppercase">Pulsa aquí</Button3D>
+    </a>
+  </Section>
+</Layout>

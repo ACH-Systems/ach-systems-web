@@ -1,0 +1,130 @@
+---
+import { ChevronLeft, ChevronRight, CircleSmall, Dot } from "@lucide/astro";
+import { Layout } from "~components";
+import {
+  Box,
+  Button3D,
+  Flex,
+  Heading,
+  Paragraph,
+  Section,
+} from "~components/ui";
+
+const images = Array.from({ length: 13 });
+---
+
+<Layout>
+  <Box class="flex w-screen flex-col items-center justify-center p-4">
+    <Heading as="h2" class="pb-7 text-center">
+      Sistema de Información Web para la Gestión de Servicios en la Clínico
+      Hinestroza Ferrer C.A
+    </Heading>
+    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" />
+    <section
+      class="relative flex max-w-400 flex-col items-center justify-center"
+    >
+      <div
+        id="carousel"
+        data-images={`${images.length}`}
+        class="carousel relative w-full max-w-250"
+      >
+        {
+          images.map((_, index) => (
+            <div id={String(index)} class="carousel-item relative w-full">
+              <img
+                src={`../../src/assets/img/proyectos/sistema-web-laboratorio-hinestroza-ferrer/${index}.jpg`}
+                class="w-full rounded-lg px-1"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 top-1/2 flex -translate-y-1/2 transform justify-between px-5"
+      >
+        <button class="prev-btn btn btn-circle"><ChevronLeft /></button>
+        <button class="next-btn btn btn-circle"><ChevronRight /></button>
+      </div>
+      <div class="mt-2 flex justify-center gap-3">
+        {
+          images.map((_, index) => (
+            <button class="indicator-btn" data-index={index}>
+              <CircleSmall class="cursor-pointer text-neutral-600" />
+            </button>
+          ))
+        }
+      </div>
+    </section>
+    <Section class="my-10 flex flex-col gap-3 text-justify">
+      <Paragraph
+        >Éste sistema fue diseñado en base a la identidad organizativa ya
+        establecida de laboratorio, como medio principal se estableció la
+        simplicidad e intuitividad para el uso ya que si personal no poseeía
+        conocimiento previo en referencia a los sistemas informáticos.
+      </Paragraph>
+      <Paragraph>
+        Dicho sistema consta de tres líneas jerárquicas siendo la de mayor rango
+        la propietaria del laboratorio, en el segundo nivel la administradora y
+        como tercer nivel la bioanalista y asistente de bioanálisis.
+      </Paragraph>
+      <Paragraph
+        >Cabe destacar qué, a pesar de ser web el sistema cuenta con un respaldo
+        local. Sin dejar de lado el formato provisional también diseñado para
+        ellos en caso de fluctuaciones eléctricas. Nuestro cliente fue muy
+        específico en temas de cuadros y tablas por ello se diseñaron a
+        comodidad del mismo.</Paragraph
+      >
+    </Section>
+  </Box>
+  <Section
+    class="flex flex-col items-center justify-center bg-neutral-400 px-15 py-20 text-white"
+  >
+    <Heading class="mb-8 text-center text-black">
+      ¿Te gustaría optar un sistema como éste?
+    </Heading>
+    <a href="../../contacto/">
+      <Button3D>Haz click aquí</Button3D>
+    </a>
+  </Section>
+</Layout>
+
+<script>
+  import { currentImageIndex } from "src/stores";
+
+  const carousel = document.getElementById("carousel");
+  const imagesLength = Number(carousel?.dataset.images) || 0;
+  const indicators = document.querySelectorAll(".indicator-btn");
+
+  document.querySelector(".prev-btn")?.addEventListener("click", () => {
+    let index = currentImageIndex.get();
+    index = index === 0 ? imagesLength - 1 : index - 1;
+    currentImageIndex.set(index);
+  });
+
+  document.querySelector(".next-btn")?.addEventListener("click", () => {
+    let index = currentImageIndex.get();
+    index = index === imagesLength - 1 ? 0 : index + 1;
+    currentImageIndex.set(index);
+  });
+
+  indicators.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = Number((btn as HTMLElement).dataset.index);
+      currentImageIndex.set(index);
+    });
+  });
+
+  currentImageIndex.subscribe((value) => {
+    if (value !== undefined) {
+      const currentScroll = window.scrollY;
+      window.location.href = `#${value}`;
+      window.scrollTo(0, currentScroll);
+      indicators.forEach((btn, index) => {
+        btn.firstElementChild?.classList.toggle(
+          "fill-neutral-600",
+          index === value,
+        );
+      });
+    }
+  });
+</script>
