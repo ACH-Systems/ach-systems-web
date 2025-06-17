@@ -13,6 +13,7 @@ export { default as Nosotros1 } from "./nosotros/nosotros1.webp";
 export { default as Nosotros2 } from "./nosotros/nosotros2.webp";
 export { default as Nosotros3 } from "./nosotros/nosotros3.webp";
 
-export { default as img1 } from "./proyectos/sistema-web-laboratorio-hinestroza-ferrer-thumb.jpg";
+export { default as sistemaHistorialMedicoLosOlivosThumb } from "./proyectos/sistema-historial-medico-los-olivos-thumb.jpg";
+export { default as sistemaWebLaboratorioHinestrozaFerrerThumb } from "./proyectos/sistema-web-laboratorio-hinestroza-ferrer-thumb.jpg";
 
 export { default as Logo } from "./logo.png";

@@ -2,15 +2,26 @@
 import { ChevronLeft, ChevronRight, CircleSmall, Dot } from "@lucide/astro";
 import { Layout } from "~components";
 import {
+  img0,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+} from "~assets/img/proyectos/sistema-historial-medico-los-olivos";
+import {
   Box,
   Button3D,
   Flex,
   Heading,
   Paragraph,
   Section,
+  Image,
 } from "~components/ui";
 
-const images = Array.from({ length: 8 });
+const images = [img0, img1, img2, img3, img4, img5, img6, img7];
 ---
 
 <Layout>
@@ -30,8 +41,9 @@ const images = Array.from({ length: 8 });
         {
           images.map((_, index) => (
             <div id={String(index)} class="carousel-item relative w-full">
-              <img
-                src={`../../src/assets/img/proyectos/sistema-historial-medico-los-olivos/${index}.jpg`}
+              <Image
+                src={images[index]}
+                alt=""
                 class="w-full rounded-lg px-1"
               />
             </div>

@@ -1,6 +1,10 @@
 ---
+import {
+  sistemaHistorialMedicoLosOlivosThumb,
+  sistemaWebLaboratorioHinestrozaFerrerThumb,
+} from "~assets/img";
 import { Layout } from "~components";
-import { Box, Flex, Grid, Heading } from "~components/ui";
+import { Box, Flex, Grid, Heading, Image } from "~components/ui";
 ---
 
 <Layout>
@@ -20,8 +24,8 @@ import { Box, Flex, Grid, Heading } from "~components/ui";
           class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-10 text-center shadow-md"
         >
           <figure>
-            <img
-              src="../src/assets/img/proyectos/sistema-web-laboratorio-hinestroza-ferrer-thumb.jpg"
+            <Image
+              src={sistemaWebLaboratorioHinestrozaFerrerThumb}
               alt=""
               class="h-40 w-full max-w-xs rounded-xl"
             />
@@ -37,8 +41,8 @@ import { Box, Flex, Grid, Heading } from "~components/ui";
           class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-10 text-center shadow-md"
         >
           <figure>
-            <img
-              src="../src/assets/img/proyectos/sistema-historial-medico-los-olivos.jpg"
+            <Image
+              src={sistemaHistorialMedicoLosOlivosThumb}
               alt=""
               class="h-40 w-full max-w-xs rounded-xl"
             />
