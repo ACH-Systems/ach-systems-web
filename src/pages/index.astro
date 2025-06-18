@@ -93,12 +93,12 @@ const services = [
     />
   </Section>
 
-  <Section class="py-16">
+  <Section class="py-8 lg:py-16">
     <Heading
-      class="text-accent pb-12 text-center text-5xl font-extrabold uppercase"
+      class="text-accent pb-6 lg:pb-12 text-center text-5xl font-extrabold uppercase"
       >Descubre nuestros servicios</Heading
     >
-    <Grid class="grid-cols-2 gap-7 px-5">
+    <div class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-7 px-5">
       {
         services.map((service) => (
           <Article>
@@ -110,16 +110,19 @@ const services = [
           </Article>
         ))
       }
-    </Grid>
+    </div>
   </Section>
 
-  <Section class="bg-neutral-400 py-20 text-white">
-    <Box class="bg-primary mx-5 border-1 border-neutral-500 p-5">
-      <Box class="border-1 border-neutral-500 p-8 px-20">
+  <Section class="bg-neutral-400 py-8 lg:py-20 text-white">
+    <Box class="bg-primary mx-5 border-1 border-neutral-500 p-3 lg:p-5">
+      <Box class="border-1 border-neutral-500 p-4 lg:p-8 lg:px-20">
         <Flex class="flex-col justify-center text-center">
-          <Heading class="mb-6 text-5xl/15">
+          <Heading class="mb-6 text-5xl/15 hidden lg:block">
             ¿Deseas saber más de nuestros servicios?
           </Heading>
+          <p class="mb-6 text-2xl/15 font-bold block lg:hidden">
+            ¿Deseas saber más de nuestros servicios?
+          </p>
           <a href="./contacto/" class="flex justify-center">
             <Button3D>Haz click aquí</Button3D>
           </a>
@@ -128,8 +131,8 @@ const services = [
     </Box>
   </Section>
 
-  <Section class="flex flex-col justify-center py-20">
-    <Flex class="mb-10 flex-col gap-6 text-center">
+  <Section class="flex flex-col justify-center py-8 lg:py-20">
+    <Flex class="mb-10 flex-col gap-6 text-center hidden lg:block">
       <Heading class="text-5xl">
         ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
       </Heading>
@@ -137,6 +140,15 @@ const services = [
       <Heading class="text-5xl">
         ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
       </Heading>
+    </Flex>
+    <Flex class="mb-10 flex-col gap-6 text-center block lg:hidden">
+      <p class="text-3xl font-semibold">
+        ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
+      </p>
+      <p class="text-accent text-3xl font-semibold">O</p>
+      <p class="text-3xl font-semibold">
+        ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
+      </p>
     </Flex>
     <Article class="mb-14 px-6 text-justify text-lg">
       <Paragraph class="mb-4">
@@ -170,7 +182,7 @@ const services = [
       ]}
     />
     <Flex class="absolute inset-0 mx-10 items-center justify-center">
-      <Heading class="text-center text-6xl/30 text-white uppercase">
+      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
         <Text class="bg-black/50 px-3"
           >EVITA PERDER EL ÓRDEN DE LAS HISTORIAS DE SUS PACIENTES</Text
         >
@@ -178,9 +190,9 @@ const services = [
     </Flex>
   </Section>
 
-  <Section class="py-20">
-    <Grid class="grid-cols-2 items-center gap-8 px-10">
-      <Article class="flex flex-col justify-center">
+  <Section class="py-8 lg:py-20">
+    <div class="px-5 lg:grid lg:grid-cols-2 items-center lg:gap-8 lg:px-10">
+      <Article class="flex flex-col justify-center mb-4 lg:mb-0">
         <Heading class="mb-10 text-center leading-12 uppercase"
           >&ldquo;Soy personal del área de salud y pienso que las <Text
             class="text-accent">historias médicas manuales</Text
@@ -216,7 +228,7 @@ const services = [
           class="w-full rounded-xl shadow-sm"
         />
       </Aside>
-    </Grid>
+    </div>
   </Section>
 
   <Section class="relative h-screen overflow-hidden">
@@ -226,24 +238,24 @@ const services = [
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg2.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
       ]}
     />
-    <Flex class="absolute inset-0 mx-10 flex-col items-center justify-center">
-      <Heading class="text-center text-6xl/30 text-white uppercase">
+    <Flex class="absolute inset-0 mx-2 lg:mx-10 flex-col items-center justify-center">
+      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
         <Text class="bg-black/50 px-3">EVITA EL DESASTRE EN PAPEL</Text>
       </Heading>
-      <Heading class="text-center text-6xl/30 text-white uppercase">
+      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
         <Text class="bg-black/50 px-3">&lt;&lt; AUTOMATIZATE YA &gt;&gt;</Text>
       </Heading>
     </Flex>
   </Section>
 
-  <Section class="py-20">
-    <Grid class="grid-cols-2 items-center gap-8 px-10">
+  <Section class="py-8  lg:py-20">
+    <div class="px-5 lg:grid lg:grid-cols-2 items-center lg:gap-8 lg:px-10">
       <Aside
         ><Image
           src={HomeAside3}
           alt=""
           loading="eager"
-          class="w-full rounded-xl"
+          class="w-full rounded-xl mb-4 lg:mb-0"
         />
       </Aside>
       <Article class="flex flex-col justify-center">
@@ -267,7 +279,7 @@ const services = [
           <Button3D color="bg-neutral-300">Consulta aquí</Button3D>
         </a>
       </Article>
-    </Grid>
+    </div>
   </Section>
 
   <Section class="relative h-[75vh] overflow-hidden">
@@ -277,8 +289,8 @@ const services = [
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg3.webp')] bg-cover bg-fixed bg-center sepia",
       ]}
     />
-    <Flex class="absolute inset-0 mx-10 items-center justify-center">
-      <Heading class="text-center text-6xl/30 text-white uppercase">
+    <Flex class="absolute inset-0 mx-4 lg:mx-10 items-center justify-center">
+      <Heading class="text-center text-5xl/25 lg:text-6xl/30 text-white uppercase">
         <Text class="bg-black/50 px-3"
           >¿USTED TIENE DIFICULTAD PARA UTILIZAR LAS FUNCIONES BÁSICAS DE SU
           TELÉFONO?
@@ -289,7 +301,7 @@ const services = [
 
   <Section class="bg-neutral-300">
     <Article
-      class="flex flex-col items-center justify-center gap-15 p-20 text-center"
+      class="hidden lg:flex flex-col items-center justify-center gap-15 p-20 text-center"
     >
       <Heading class="text-6xl/20 !font-light"
         >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</Heading
@@ -304,12 +316,28 @@ const services = [
         >
       </a>
     </Article>
+    <Article
+      class="flex lg:hidden flex-col gap-5 items-center justify-center px-4 py-8 text-center"
+    >
+      <p class="text-3xl "
+        >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</p
+      >
+      <p class="text-2xl text-accent italic"
+        >Tan fácil como utilizar su celular.</p
+      >
+      <p class="text-3xl mb-4">¿Aún no se decide?</p>
+      <a href="./contacto/">
+        <Button3D color="bg-neutral-600 text-white"
+          >SOLICITA TU ASESORÍA YA</Button3D
+        >
+      </a>
+    </Article>
   </Section>
 
-  <Section class="py-20">
-    <Grid class="grid-cols-2 items-center gap-4 px-10">
+  <Section class="py-8 lg:py-20">
+    <div class="px-5 lg:grid lg: grid-cols-2 items-center lg:gap-4 lg:px-10">
       <Article class="flex flex-col justify-center">
-        <Heading class="mb-10 text-center leading-12 uppercase"
+        <Heading class="mb-4 lg:mb-10 text-center leading-12 uppercase"
           >&ldquo;<Text class="text-accent"
             >No tengo idea de lo que necesito</Text
           > para automaticar mis actividades&rdquo;</Heading
@@ -336,7 +364,7 @@ const services = [
           class="w-full rounded-xl"
         />
       </Aside>
-    </Grid>
+    </div>
   </Section>
 </Layout>
 
