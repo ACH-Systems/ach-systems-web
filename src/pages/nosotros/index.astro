@@ -17,22 +17,26 @@ import {
 ---
 
 <Layout title="NOSOTROS :: ACH SYSTEMS">
-  <Section class="bg-secondary p-15 text-center">
+  <Section class="bg-secondary px-4 py-10 lg:p-15 text-center w-full">
     <Box class="border-y border-white py-5">
-      <Heading as="h3" class="text-white italic"
+      <Heading as="h3" class="text-white italic hidden lg:block"
         >SOMOS LA PRIMERA EMPRESA EN EL ZULIA ENCARGADA DEL DISEÑO DE SISTEMAS
         PARA GESTIONAR TUS SERVICIOS HECHOS A LA MEDIDA Y AL MEJOR PRECIO.</Heading
+      >
+      <h3 class="text-white italic font-bold lg:hidden block"
+        >SOMOS LA PRIMERA EMPRESA EN EL ZULIA ENCARGADA DEL DISEÑO DE SISTEMAS
+        PARA GESTIONAR TUS SERVICIOS HECHOS A LA MEDIDA Y AL MEJOR PRECIO.</h3
       >
     </Box>
   </Section>
 
-  <Section class="pt-15 pb-5">
-    <Grid class="grid-cols-2 items-center gap-8 px-10">
+  <Section class="pt-10 lg:pt-0 pb-5">
+    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-1 flex justify-center">
         <Image src={Nosotros1} alt="" loading="eager" class="rounded-xl" />
       </Aside>
       <Article class="order-2 flex flex-col justify-center">
-        <Heading as="h2" class="mb-3 text-center">Ing. Aixa Chacín</Heading>
+        <Heading as="h2" class="mb-3 text-center pt-2 lg:pt-0">Ing. Aixa Chacín</Heading>
         <List class="mb-3 flex flex-col gap-2 p-5">
           {
             [
@@ -59,16 +63,16 @@ import {
           con tecnología de ultimo momento.</Paragraph
         >
       </Article>
-    </Grid>
+    </div>
   </Section>
 
   <Section class="py-5">
-    <Grid class="grid-cols-2 items-center gap-8 px-10">
+    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-2 flex justify-center">
         <Image src={Nosotros2} alt="" loading="eager" class="rounded-xl" />
       </Aside>
       <Article class="order-1">
-        <Heading as="h2" class="mb-3 text-center">Ing. Fernando Duarte</Heading>
+        <Heading as="h2" class="mb-3 text-center pt-2 lg:pt-0">Ing. Fernando Duarte</Heading>
         <List class="mb-3 flex flex-col gap-2 p-5">
           {
             [
@@ -90,16 +94,16 @@ import {
           Js, será tu aliado para desarrollar y hacer realidad tus proyectos.</Paragraph
         >
       </Article>
-    </Grid>
+    </div>
   </Section>
 
   <Section class="pt-5 pb-10">
-    <Grid class="grid-cols-2 items-center gap-8 px-10">
+    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-1 flex justify-center">
         <Image src={Nosotros3} alt="" loading="eager" class="rounded-xl" />
       </Aside>
       <Article class="order-2">
-        <Heading as="h2" class="mb-3 text-center">Ing. Rodolfo López</Heading>
+        <Heading as="h2" class="mb-3 text-center pt-2 lg:pt-0">Ing. Rodolfo López</Heading>
         <List class="mb-3 flex flex-col gap-2 p-5">
           {
             ["Ingeniero de Sistemas.", "Desarrollador Web."].map((item) => (
@@ -117,12 +121,12 @@ import {
           necesarias para que su página o sistema sea exitoso.</Paragraph
         >
       </Article>
-    </Grid>
+    </div>
   </Section>
 
-  <Section class="mx-10 pt-10 pb-10">
+  <Section class="mx-5 lg:mx-10 pt-0 lg:pt-10 pb-10">
     <Article class="mb-10 text-justify">
-      <Heading class="text-accent mb-10 text-center uppercase">Misión</Heading>
+      <Heading class="text-accent mb-5 lg:mb-10 text-center uppercase">Misión</Heading>
       <Paragraph class="mb-3"
         >Asesorar, diseñar, desarrollar e implementar soluciones de software
         innovadoras, totalmente personalizadas a cualquier usuario, las cuales
@@ -146,7 +150,7 @@ import {
       >
     </Article>
     <Article class="text-justify">
-      <Heading class="text-accent mb-10 text-center uppercase">Visión</Heading>
+      <Heading class="text-accent mb-5 lg:mb-10 text-center uppercase">Visión</Heading>
       <Paragraph class="mb-3">
         Ser la referencia líder en soluciones de software, actuando como
         catalizador de la Transformación digital para organizaciones del sector
@@ -164,10 +168,11 @@ import {
     </Article>
   </Section>
   <Section
-    class="flex flex-col justify-center bg-neutral-300 px-15 py-15 text-center"
+    class="flex flex-col justify-center bg-neutral-300 lg:px-15 py-8 lg:py-15 text-center"
   >
-    <Heading class="mb-10 text-5xl uppercase">¿Deseas contactarnos?</Heading>
-    <a href="./contacto" class="flex justify-center">
+    <Heading class="mb-10 text-5xl uppercase hidden lg:block ">¿Deseas contactarnos?</Heading>
+    <p class="mb-10 text-2xl font-bold uppercase lg:hidden block ">¿Deseas contactarnos?</p>
+    <a href="/contacto/" class="flex justify-center">
       <Button3D color="bg-neutral-400" class="uppercase">Pulsa aquí</Button3D>
     </a>
   </Section>
