@@ -29,9 +29,11 @@ const images = [img0, img1, img2, img3, img4, img5, img6, img7];
     <Heading as="h2" class="pb-7 text-center">
       Sistema de Historial Médico - Centro Clínico Los Olivos
     </Heading>
-    <Flex class="w-full border-t border-dashed border-neutral-600 hidden lg:block lg:pb-10" />
+    <Flex
+      class="hidden w-full border-t border-dashed border-neutral-600 lg:block lg:pb-10"
+    />
     <section
-      class="relative flex max-w-screen p-4 lg:max-w-400 flex-col items-center justify-center"
+      class="relative flex max-w-screen flex-col items-center justify-center p-4 lg:max-w-400"
     >
       <div
         id="carousel"
@@ -66,7 +68,7 @@ const images = [img0, img1, img2, img3, img4, img5, img6, img7];
         }
       </div>
     </section>
-    <Section class="lg:my-10 flex flex-col gap-3 text-justify">
+    <Section class="flex flex-col gap-3 text-justify lg:my-10">
       <Paragraph
         >Este sistema de historial médico fue diseñado para garantizar
         simplicidad e intuitividad, permitiendo que el personal de salud
@@ -86,12 +88,12 @@ const images = [img0, img1, img2, img3, img4, img5, img6, img7];
     </Section>
   </Box>
   <Section
-    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 lg:px-15 lg:py-20 text-white"
+    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 text-white lg:px-15 lg:py-20"
   >
-    <Heading class="mb-8 text-center text-black hidden lg:block">
+    <Heading class="mb-8 hidden text-center text-black lg:block">
       ¿Te gustaría optar un sistema como éste?
     </Heading>
-    <p class="mb-8 text-center text-2xl font-bold text-black block lg:hidden">
+    <p class="mb-8 block text-center text-2xl font-bold text-black lg:hidden">
       ¿Te gustaría optar un sistema como éste?
     </p>
     <a href="../../contacto/">
