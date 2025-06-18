@@ -49,9 +49,9 @@ const images = [
       Sistema de Información Web para la Gestión de Servicios en la Clínico
       Hinestroza Ferrer C.A
     </Heading>
-    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" />
+    <Flex class="w-full border-t border-dashed border-neutral-600 hidden lg:block lg:pb-10" />
     <section
-      class="relative flex max-w-400 flex-col items-center justify-center"
+      class="relative flex max-w-screen p-4 lg:max-w-400 flex-col items-center justify-center"
     >
       <div
         id="carousel"
@@ -76,7 +76,7 @@ const images = [
         <button class="prev-btn btn btn-circle"><ChevronLeft /></button>
         <button class="next-btn btn btn-circle"><ChevronRight /></button>
       </div>
-      <div class="mt-2 flex justify-center gap-3">
+      <div class="mt-2 flex justify-center lg:gap-3 w-full">
         {
           images.map((_, index) => (
             <button class="indicator-btn" data-index={index}>
@@ -86,7 +86,7 @@ const images = [
         }
       </div>
     </section>
-    <Section class="my-10 flex flex-col gap-3 text-justify">
+    <Section class="lg:my-10 flex flex-col gap-3 text-justify">
       <Paragraph
         >Éste sistema fue diseñado en base a la identidad organizativa ya
         establecida de laboratorio, como medio principal se estableció la
@@ -108,11 +108,14 @@ const images = [
     </Section>
   </Box>
   <Section
-    class="flex flex-col items-center justify-center bg-neutral-400 px-15 py-20 text-white"
+    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 lg:px-15 lg:py-20 text-white"
   >
-    <Heading class="mb-8 text-center text-black">
+    <Heading class="mb-8 text-center text-black hidden lg:block">
       ¿Te gustaría optar un sistema como éste?
     </Heading>
+    <p class="mb-8 text-center text-2xl font-bold text-black block lg:hidden">
+      ¿Te gustaría optar un sistema como éste?
+    </p>
     <a href="../../contacto/">
       <Button3D>Haz click aquí</Button3D>
     </a>
