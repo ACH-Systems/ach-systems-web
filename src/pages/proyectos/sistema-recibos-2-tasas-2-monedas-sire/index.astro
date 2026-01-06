@@ -1,0 +1,153 @@
+---
+import { ChevronLeft, ChevronRight, CircleSmall } from "@lucide/astro";
+import { Layout } from "~components";
+import {
+  img0,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+} from "~assets/img/proyectos/sistema-recibos-2-tasas-2-monedas-sire";
+import {
+  Box,
+  Button3D,
+  Flex,
+  Heading,
+  Paragraph,
+  Section,
+  Image,
+} from "~components/ui";
+
+const images = [img0, img1, img2, img3, img4, img5, img6, img7];
+---
+
+<Layout>
+  <Box class="flex w-screen flex-col items-center justify-center p-4">
+    <Heading as="h2" class="pb-7 text-center">
+      Sistema de Recibos 2 Tasas 2 monedas SIRE 2T
+    </Heading>
+    <Flex
+      class="hidden w-full border-t border-dashed border-neutral-600 lg:block lg:pb-10"
+    />
+    <section
+      class="relative flex max-w-screen flex-col items-center justify-center p-4 lg:max-w-400"
+    >
+      <div
+        id="carousel"
+        data-images={`${images.length}`}
+        class="carousel relative w-full max-w-250"
+      >
+        {
+          images.map((_, index) => (
+            <div id={String(index)} class="carousel-item relative w-full">
+              <Image
+                src={images[index]}
+                alt=""
+                class="w-full rounded-lg px-1"
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 top-1/2 flex -translate-y-1/2 transform justify-between px-5"
+      >
+        <button class="prev-btn btn btn-circle"><ChevronLeft /></button>
+        <button class="next-btn btn btn-circle"><ChevronRight /></button>
+      </div>
+      <div class="mt-2 flex w-full justify-center lg:gap-3">
+        {
+          images.map((_, index) => (
+            <button class="indicator-btn" data-index={index}>
+              <CircleSmall class="cursor-pointer text-neutral-600" />
+            </button>
+          ))
+        }
+      </div>
+    </section>
+    <Section class="flex flex-col gap-3 text-justify lg:my-10">
+      <Paragraph
+        >Éste sistema de recibos para pequeños negocios fue diseñado para
+        garantizar simplicidad e intuitividad, permitiendo que cualquier
+        empleado sin conocimientos de sistemas de gestión pueda manejarlo con
+        facilidad, desarrollado en un entorno local que además, puede funcionar
+        con dos o más equipos a la vez, integrando el inventario y despachos en
+        un mismo sistema, todo desde un equipo principal. De esta forma se
+        elimina la necesidad de una conexión estable 24/7 y se reducen los
+        tiempos de carga y espera.
+      </Paragraph>
+      <Paragraph>
+        Además, este sistema cuenta con un apartado automático de gestión de
+        usuarios totalmente autónomo desde el equipo administrador o principal,
+        alimentando el resto. Totalmente personalizable y adaptable según su
+        negocio o emprendimiento, podemos realizarlo a una tasa dos monedas o
+        según la modalidad que usted lo requiera, un beneficio muy destacado de
+        este sistema es la permisibilidad de observación al final del día de tus
+        operaciones. Dando como resultado final la impresión del recibo con su
+        descripción.
+      </Paragraph>
+      <Paragraph
+        >SIRE 2T2M cuenta con un mes de garantía post instalación y es de bajo
+        mantenimiento, puedes ver este sistema implementado en ABASTO KAIROS
+        C.A.</Paragraph
+      >
+    </Section>
+  </Box>
+  <Section
+    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 text-white lg:px-15 lg:py-20"
+  >
+    <Heading class="mb-8 hidden text-center text-black lg:block">
+      ¿Te gustaría optar un sistema como éste?
+    </Heading>
+    <p class="mb-8 block text-center text-2xl font-bold text-black lg:hidden">
+      ¿Te gustaría optar un sistema como éste?
+    </p>
+    <a href="../../contacto/">
+      <Button3D>Haz click aquí</Button3D>
+    </a>
+  </Section>
+</Layout>
+
+<script>
+  import { currentImageIndex } from "src/stores";
+
+  const carousel = document.getElementById("carousel");
+  const imagesLength = Number(carousel?.dataset.images) || 0;
+  const indicators = document.querySelectorAll(".indicator-btn");
+
+  document.querySelector(".prev-btn")?.addEventListener("click", () => {
+    let index = currentImageIndex.get();
+    index = index === 0 ? imagesLength - 1 : index - 1;
+    currentImageIndex.set(index);
+  });
+
+  document.querySelector(".next-btn")?.addEventListener("click", () => {
+    let index = currentImageIndex.get();
+    index = index === imagesLength - 1 ? 0 : index + 1;
+    currentImageIndex.set(index);
+  });
+
+  indicators.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = Number((btn as HTMLElement).dataset.index);
+      currentImageIndex.set(index);
+    });
+  });
+
+  currentImageIndex.subscribe((value) => {
+    if (value !== undefined) {
+      const currentScroll = window.scrollY;
+      window.location.href = `#${value}`;
+      window.scrollTo(0, currentScroll);
+      indicators.forEach((btn, index) => {
+        btn.firstElementChild?.classList.toggle(
+          "fill-neutral-600",
+          index === value,
+        );
+      });
+    }
+  });
+</script>
