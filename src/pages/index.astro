@@ -98,7 +98,7 @@ const services = [
       class="text-accent pb-6 text-center text-5xl font-extrabold uppercase lg:pb-12"
       >Descubre nuestros servicios</Heading
     >
-    <div class="flex flex-col gap-6 px-5 lg:grid lg:grid-cols-2 lg:gap-7">
+    <Flex class="flex-col gap-6 px-5 lg:grid lg:grid-cols-2 lg:gap-7">
       {
         services.map((service) => (
           <Article>
@@ -110,19 +110,17 @@ const services = [
           </Article>
         ))
       }
-    </div>
+    </Flex>
   </Section>
 
   <Section class="bg-neutral-400 py-8 text-white lg:py-20">
     <Box class="bg-primary mx-5 border-1 border-neutral-500 p-3 lg:p-5">
       <Box class="border-1 border-neutral-500 p-4 lg:p-8 lg:px-20">
         <Flex class="flex-col justify-center text-center">
-          <Heading class="mb-6 hidden text-5xl/15 lg:block">
+          <Heading class="mb-6 text-5xl/15 lg:block">
             ¿Deseas saber más de nuestros servicios?
           </Heading>
-          <p class="mb-6 block text-2xl/15 font-bold lg:hidden">
-            ¿Deseas saber más de nuestros servicios?
-          </p>
+
           <a href="./contacto/" class="flex justify-center">
             <Button3D>Haz click aquí</Button3D>
           </a>
@@ -132,7 +130,7 @@ const services = [
   </Section>
 
   <Section class="flex flex-col justify-center py-8 lg:py-20">
-    <Flex class="mb-10 hidden flex-col gap-6 text-center lg:block">
+    <Flex class="mb-10 block flex-col gap-6 text-center">
       <Heading class="text-5xl">
         ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
       </Heading>
@@ -140,15 +138,6 @@ const services = [
       <Heading class="text-5xl">
         ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
       </Heading>
-    </Flex>
-    <Flex class="mb-10 block flex-col gap-6 text-center lg:hidden">
-      <p class="text-3xl font-semibold">
-        ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
-      </p>
-      <p class="text-accent text-3xl font-semibold">O</p>
-      <p class="text-3xl font-semibold">
-        ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
-      </p>
     </Flex>
     <Article class="mb-14 px-6 text-justify text-lg">
       <Paragraph class="mb-4">
@@ -183,10 +172,10 @@ const services = [
     />
     <Flex class="absolute inset-0 items-center justify-center p-4">
       <div
-        class="max-w-sm rounded-lg bg-black/50 p-6 text-center backdrop-blur-xs md:max-w-2xl lg:max-w-4xl"
+        class="max-w-[90vw] rounded-lg bg-black/50 p-6 text-center backdrop-blur-sm md:max-w-2xl lg:max-w-4xl"
       >
         <Heading
-          class="text-xl leading-snug text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
+          class="text-[clamp(14px,5vw,30px)] leading-tight text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
         >
           EVITA PERDER EL ÓRDEN DE LAS HISTORIAS DE SUS PACIENTES
         </Heading>
@@ -195,7 +184,7 @@ const services = [
   </Section>
 
   <Section class="py-8 lg:py-20">
-    <div class="items-center px-5 lg:grid lg:grid-cols-2 lg:gap-8 lg:px-10">
+    <Box class="items-center px-5 lg:grid lg:grid-cols-2 lg:gap-8 lg:px-10">
       <Aside class="order-2 mb-10 flex flex-col gap-4 lg:order-2">
         <Image
           src={HomeAside1}
@@ -231,7 +220,7 @@ const services = [
           <Button3D color="bg-neutral-300">Mira el artículo aquí</Button3D>
         </a>
       </Article>
-    </div>
+    </Box>
   </Section>
 
   <Section class="relative h-screen overflow-hidden">
@@ -244,29 +233,29 @@ const services = [
     <Flex
       class="absolute inset-0 flex-col items-center justify-center gap-6 p-4"
     >
-      <div
-        class="max-w-sm rounded-lg bg-black/50 p-6 text-center backdrop-blur-xs md:max-w-2xl lg:max-w-4xl"
+      <Box
+        class="max-w-[90vw] rounded-lg bg-black/50 p-6 text-center backdrop-blur-sm md:max-w-2xl lg:max-w-4xl"
       >
         <Heading
-          class="text-xl leading-snug text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
+          class="text-[clamp(14px,5vw,30px)] leading-tight text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
         >
           EVITA EL DESASTRE EN PAPEL
         </Heading>
-      </div>
-      <div
-        class="max-w-sm rounded-lg bg-black/50 p-6 text-center backdrop-blur-xs md:max-w-2xl lg:max-w-4xl"
+      </Box>
+      <Box
+        class="max-w-[90vw] rounded-lg bg-black/50 p-6 text-center backdrop-blur-sm md:max-w-2xl lg:max-w-4xl"
       >
         <Heading
-          class="text-xl leading-snug text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
+          class="text-[clamp(14px,5vw,30px)] leading-tight text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
         >
           &lt;&lt; AUTOMATIZATE YA &gt;&gt;
         </Heading>
-      </div>
+      </Box>
     </Flex>
   </Section>
 
   <Section class="py-8 lg:py-20">
-    <div class="items-center px-5 lg:grid lg:grid-cols-2 lg:gap-8 lg:px-10">
+    <Box class="items-center px-5 lg:grid lg:grid-cols-2 lg:gap-8 lg:px-10">
       <Aside
         ><Image
           src={HomeAside3}
@@ -296,7 +285,7 @@ const services = [
           <Button3D color="bg-neutral-300">Consulta aquí</Button3D>
         </a>
       </Article>
-    </div>
+    </Box>
   </Section>
 
   <Section class="relative h-[75vh] overflow-hidden">
@@ -307,38 +296,22 @@ const services = [
       ]}
     />
     <Flex class="absolute inset-0 items-center justify-center p-4">
-      <div
-        class="max-w-sm rounded-lg bg-black/50 p-6 text-center backdrop-blur-xs md:max-w-3xl lg:max-w-5xl"
+      <Box
+        class="max-w-[90vw] rounded-lg bg-black/50 p-6 text-center backdrop-blur-sm md:max-w-3xl lg:max-w-5xl"
       >
         <Heading
-          class="text-xl leading-snug text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
+          class="text-[clamp(14px,4vw,26px)] leading-tight text-white uppercase md:text-4xl lg:text-5xl lg:leading-tight"
         >
           ¿USTED TIENE DIFICULTAD PARA UTILIZAR LAS FUNCIONES BÁSICAS DE SU
           TELÉFONO?
         </Heading>
-      </div>
+      </Box>
     </Flex>
   </Section>
 
   <Section class="bg-neutral-300">
     <Article
-      class="hidden flex-col items-center justify-center gap-15 p-20 text-center lg:flex"
-    >
-      <Heading class="text-6xl/20 !font-light"
-        >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</Heading
-      >
-      <Heading class="text-accent italic"
-        >Tan fácil como utilizar su celular.</Heading
-      >
-      <Heading class="text-6xl">¿Aún no se decide?</Heading>
-      <a href="./contacto/">
-        <Button3D color="bg-neutral-600 text-white"
-          >SOLICITA TU ASESORÍA YA</Button3D
-        >
-      </a>
-    </Article>
-    <Article
-      class="flex flex-col items-center justify-center gap-5 px-4 py-8 text-center lg:hidden"
+      class="flex flex-col items-center justify-center gap-5 px-4 py-8 text-center"
     >
       <p class="text-3xl">
         ¿Si?... Entonces ¿Qué espera para solicitar su sistema?
@@ -348,15 +321,14 @@ const services = [
       </p>
       <p class="mb-4 text-3xl">¿Aún no se decide?</p>
       <a href="./contacto/">
-        <Button3D color="bg-neutral-600 text-white"
-          >SOLICITA TU ASESORÍA YA</Button3D
+        <Button3D color="bg-accent text-white">SOLICITA TU ASESORÍA YA</Button3D
         >
       </a>
     </Article>
   </Section>
 
   <Section class="py-8 lg:py-20">
-    <div class="lg: grid-cols-2 items-center px-5 lg:grid lg:gap-4 lg:px-10">
+    <Box class="items-center px-5 lg:grid lg:grid-cols-2 lg:gap-4 lg:px-10">
       <Aside class="order-2 mb-10 flex items-center justify-center"
         ><Image
           src={HomeAside4}
@@ -385,7 +357,7 @@ const services = [
           <Button3D color="bg-neutral-300">Contáctanos</Button3D>
         </a>
       </Article>
-    </div>
+    </Box>
   </Section>
 </Layout>
 
