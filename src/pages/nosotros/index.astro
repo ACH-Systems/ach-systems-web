@@ -16,21 +16,19 @@ import {
 ---
 
 <Layout title="NOSOTROS :: ACH SYSTEMS">
-  <Section class="bg-secondary w-full px-4 py-10 text-center lg:p-15">
-    <Box class="border-y border-white py-5">
-      <Heading as="h3" class="hidden text-white italic lg:block"
-        >SOMOS LA PRIMERA EMPRESA EN EL ZULIA ENCARGADA DEL DISEÑO DE SISTEMAS
-        PARA GESTIONAR TUS SERVICIOS HECHOS A LA MEDIDA Y AL MEJOR PRECIO.</Heading
+  <Section class="w-full px-4 py-10 text-center">
+    <Box class="border-accent border-y-4 py-6">
+      <Heading
+        as="h3"
+        class="text-accent text-2xl leading-relaxed font-black tracking-wider uppercase italic lg:block lg:text-4xl"
       >
-      <h3 class="block font-bold text-white italic lg:hidden">
         SOMOS LA PRIMERA EMPRESA EN EL ZULIA ENCARGADA DEL DISEÑO DE SISTEMAS
         PARA GESTIONAR TUS SERVICIOS HECHOS A LA MEDIDA Y AL MEJOR PRECIO.
-      </h3>
+      </Heading>
     </Box>
   </Section>
-
-  <Section class="pt-10 pb-5 lg:pt-0">
-    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
+  <Section>
+    <Box class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-1 flex justify-center">
         <Image src={Nosotros1} alt="" loading="eager" class="rounded-xl" />
       </Aside>
@@ -64,11 +62,11 @@ import {
           con tecnología de ultimo momento.</Paragraph
         >
       </Article>
-    </div>
+    </Box>
   </Section>
 
   <Section class="py-5">
-    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
+    <Box class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-2 flex justify-center">
         <Image src={Nosotros2} alt="" loading="eager" class="rounded-xl" />
       </Aside>
@@ -97,11 +95,11 @@ import {
           Js, será tu aliado para desarrollar y hacer realidad tus proyectos.</Paragraph
         >
       </Article>
-    </div>
+    </Box>
   </Section>
 
   <Section class="pt-5 pb-10">
-    <div class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
+    <Box class="px-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-10">
       <Aside class="order-1 flex justify-center">
         <Image src={Nosotros3} alt="" loading="eager" class="rounded-xl" />
       </Aside>
@@ -126,7 +124,7 @@ import {
           necesarias para que su página o sistema sea exitoso.</Paragraph
         >
       </Article>
-    </div>
+    </Box>
   </Section>
 
   <Section class="mx-5 pt-0 pb-10 lg:mx-10 lg:pt-10">
@@ -182,9 +180,9 @@ import {
     <Heading class="mb-10 hidden text-5xl uppercase lg:block"
       >¿Deseas contactarnos?</Heading
     >
-    <p class="mb-10 block text-2xl font-bold uppercase lg:hidden">
+    <Paragraph class="mb-10 block text-2xl font-bold uppercase lg:hidden">
       ¿Deseas contactarnos?
-    </p>
+    </Paragraph>
     <a href="/contacto/" class="flex justify-center">
       <Button3D color="bg-neutral-400" class="uppercase">Pulsa aquí</Button3D>
     </a>
