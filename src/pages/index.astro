@@ -81,9 +81,25 @@ const services = [
       "Si eres emprendedor y estás iniciando en el mundo digital, tenemos sistemas ideales para ti, puedes tener tu negocio Online basado en plantillas pre diseñadas  y así impulsarte al siguiente nivel, adaptándonos a tu presupuesto.",
   },
 ];
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "ACH Systems",
+  serviceType: "Desarrollo de Sistemas a Medida",
+  areaServed: "Venezuela",
+  url: "https://achsystem.es/",
+  telephone: "+58 424-637-5061",
+  email: "achsystems@hotmail.com",
+};
 ---
 
-<Layout>
+<Layout
+  title="ACH Systems | Desarrollo de Sistemas a Medida"
+  description="Desarrollamos sistemas a medida para clínicas, consultorios, comercios y emprendimientos. Automatiza tus procesos con soluciones intuitivas y soporte personalizado."
+  keywords="desarrollo de sistemas a medida, software para clinicas, software para consultorios, sistemas administrativos, automatizacion de negocios"
+  structuredData={homeSchema}
+>
   <Section class="relative isolate overflow-hidden">
     <Image
       src={Hero}
