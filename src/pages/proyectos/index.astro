@@ -1,57 +1,119 @@
 ---
+import { ArrowRight, Calendar, CheckCircle } from "@lucide/astro";
 import {
   sistemaHistorialMedicoLosOlivosThumb,
   sistemaWebLaboratorioHinestrozaFerrerThumb,
 } from "~assets/img";
 import { Layout } from "~components";
-import { Box, Flex, Grid, Heading, Image } from "~components/ui";
+import { Box, Button3D, Grid, Heading, Image, Paragraph, Section, Text } from "~components/ui";
 ---
 
-<Layout>
-  <Box class="p-4">
-    <Heading as="h2" class="pb-5 text-center"
-      >Nuestro portafolio de proyectos</Heading
-    >
-    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" , />
-    <Grid
-      class:list={[
-        "gap-5",
-        "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
-      ]}
-    >
-      <a href="./sistema-web-laboratorio-hinestroza-ferrer/">
-        <div
-          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-2 text-center shadow-md"
-        >
-          <figure>
-            <Image
-              src={sistemaWebLaboratorioHinestrozaFerrerThumb}
-              alt=""
-              class="h-40 w-full max-w-xs rounded-xl"
-            />
-          </figure>
-          <h2 class="text-xl font-light">
-            Sistema de Información Web para la Gestión de Servicios en el
-            Clínico Hinestroza Ferrer C.A
-          </h2>
-        </div>
-      </a>
-      <a href="./sistema-historial-medico-los-olivos/">
-        <div
-          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-2 text-center shadow-md"
-        >
-          <figure>
-            <Image
-              src={sistemaHistorialMedicoLosOlivosThumb}
-              alt=""
-              class="h-40 w-full max-w-xs rounded-xl"
-            />
-          </figure>
-          <h2 class="text-xl font-light">
-            Sistema de Historial Médico - Centro Clínico Los Olivos
-          </h2>
-        </div>
-      </a>
-    </Grid>
-  </Box>
+<Layout title="PROYECTOS :: ACH SYSTEMS">
+  <Section class="py-12 lg:py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <Heading as="h1" class="text-3xl md:text-4xl lg:text-5xl text-center mb-4 font-bold uppercase text-accent"
+        >Proyectos Destacados</Heading
+      >
+      <Paragraph class="text-center text-lg text-neutral-600 mb-12 max-w-2xl mx-auto"
+        >Conoce algunos de nuestros trabajos más recientes y cómo hemos ayudado a empresas 
+        a transformar sus operaciones con soluciones tecnológicas personalizadas.</Paragraph
+      >
+      
+      <Grid
+        class:list={[
+          "gap-6 md:gap-8",
+          "sm:grid-cols-1 md:grid-cols-2",
+        ]}
+      >
+        <a href="./sistema-web-laboratorio-hinestroza-ferrer/" class="group">
+          <Box class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-neutral-100 h-full">
+            <div class="relative overflow-hidden">
+              <Image
+                src={sistemaWebLaboratorioHinestrozaFerrerThumb}
+                alt="Sistema de Gestión para Laboratorio Clínico Hinestroza Ferrer"
+                class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <div class="flex items-center gap-2 text-sm">
+                  <Calendar class="size-4" />
+                  <span>2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <Heading as="h2" class="text-xl font-bold mb-3 group-hover:text-accent transition-colors"
+                >Sistema de Información Web para Gestión de Servicios</Heading
+              >
+              <p class="text-neutral-600 mb-4 text-sm"
+                >Desarrollado para el Clínico Hinestroza Ferrer C.A. Sistema integral para 
+                gestión de servicios médicos con interfaz moderna y eficiente.</p
+              >
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">Sistema Web</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">Gestión médica</span>
+              </div>
+              <div class="flex items-center text-accent font-medium group-hover:gap-3 transition-all">
+                <span>Ver proyecto</span>
+                <ArrowRight class="size-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Box>
+        </a>
+        
+        <a href="./sistema-historial-medico-los-olivos/" class="group">
+          <Box class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-neutral-100 h-full">
+            <div class="relative overflow-hidden">
+              <Image
+                src={sistemaHistorialMedicoLosOlivosThumb}
+                alt="Sistema de Historial Médico Centro Clínico Los Olivos"
+                class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <div class="flex items-center gap-2 text-sm">
+                  <Calendar class="size-4" />
+                  <span>2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <Heading as="h2" class="text-xl font-bold mb-3 group-hover:text-accent transition-colors"
+                >Sistema de Historial Médico</Heading
+              >
+              <p class="text-neutral-600 mb-4 text-sm"
+                >Implementado para el Centro Clínico Los Olivos. Digitalización completa 
+                de historias médicas con búsqueda avanzada y gestión de pacientes.</p
+              >
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">Historial Médico</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">Salud</span>
+              </div>
+              <div class="flex items-center text-accent font-medium group-hover:gap-3 transition-all">
+                <span>Ver proyecto</span>
+                <ArrowRight class="size-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Box>
+        </a>
+      </Grid>
+
+      <div class="mt-16 text-center">
+        <Box class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 lg:p-12 text-white max-w-3xl mx-auto">
+          <Heading class="text-2xl md:text-3xl font-bold mb-4"
+            >¿Tienes un proyecto en mente?</Heading
+          >
+          <Paragraph class="text-white/80 mb-6"
+            >Contáctanos y descubre cómo podemos ayudarte a transformar tu negocio 
+            con tecnología personalizada.</Paragraph
+          >
+          <a href="/contacto/">
+            <Button3D color="bg-white text-primary"
+              >Cotizar mi proyecto</Button3D
+            >
+          </a>
+        </Box>
+      </div>
+    </div>
+  </Section>
 </Layout>

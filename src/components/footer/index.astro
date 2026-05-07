@@ -1,47 +1,82 @@
+---
+import { Instagram, LinkedIn } from "~assets/icons";
+import { Image } from "astro:assets";
+import { Logo } from "~assets/img";
+import { WhatsApp, Mail } from "@lucide/astro";
+
+const currentYear = new Date().getFullYear();
+---
+
 <footer
   class:list={[
-    "bg-primary z-3 flex h-full flex-col items-center p-6 text-white shadow-md",
+    "bg-primary z-3 flex flex-col items-center p-6 lg:p-10 text-white",
   ]}
 >
-  <!-- <div class="flex flex-row justify-center gap-15 py-10">
-    <figure class="flex w-75 flex-col">
-      <img src="../src/assets/img/logo.png" class="w-50" />
-      <figcaption class="my-3 font-bold italic">
-        Innovación para la eficiencia
-      </figcaption>
-      <p>
-        Somos una empresa venezolana dedicada a la implementacion de soluciones
-        tecnologicas para tu negocio.
+  <div class="max-w-5xl w-full">
+    <div class="grid md:grid-cols-3 gap-8 mb-10 text-center md:text-left">
+      <div class="flex flex-col items-center md:items-start">
+        <Image src={Logo} alt="ACH Systems" class="w-32 mb-4" />
+        <p class="text-white/70 text-sm max-w-xs"
+          >Innovación tecnológica para impulsar tu negocio. Sistemas personalizados 
+          desarrollados en Venezuela.</p
+        >
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-lg mb-4 text-accent">Contacto</h4>
+        <div class="flex flex-col gap-3">
+          <a 
+            href="https://wa.me/584246375061" 
+            class="flex items-center gap-3 text-white/70 hover:text-white transition-colors text-sm"
+          >
+            <WhatsApp class="size-4" />
+            <span>+58 424-637-5061</span>
+          </a>
+          <a 
+            href="mailto:achsystems@hotmail.com" 
+            class="flex items-center gap-3 text-white/70 hover:text-white transition-colors text-sm"
+          >
+            <Mail class="size-4" />
+            <span>achsystems@hotmail.com</span>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-bold text-lg mb-4 text-accent">Síguenos</h4>
+        <div class="flex justify-center md:justify-start gap-4">
+          <a 
+            href="https://www.instagram.com/achsystems" 
+            target="_blank"
+            aria-label="Instagram"
+            class="p-2 bg-white/10 rounded-full hover:bg-accent transition-colors"
+          >
+            <Instagram class="size-5 fill-white" />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/" 
+            target="_blank"
+            aria-label="LinkedIn"
+            class="p-2 bg-white/10 rounded-full hover:bg-accent transition-colors"
+          >
+            <LinkedIn class="size-5 fill-white" />
+          </a>
+          <a 
+            href="https://wa.me/584246375061" 
+            target="_blank"
+            aria-label="WhatsApp"
+            class="p-2 bg-white/10 rounded-full hover:bg-accent transition-colors"
+          >
+            <WhatsApp class="size-5 fill-white" />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-white/10 pt-6 text-center">
+      <p class="text-white/50 text-sm">
+        © {currentYear} ACH SYSTEMS. Todos los derechos reservados.
       </p>
-    </figure>
-
-    {
-      lists.map((list) => (
-        <figure>
-          <figcaption class="text-xl font-bold uppercase">
-            {list.name}
-          </figcaption>
-          <ul class="text-left text-lg">
-            {list.list.map((item, itemIndex) => (
-              <li class:list={["flex flex-row items-center"]}>
-                <div
-                  class:list={[
-                    "flex self-start border-l border-dashed border-neutral-500",
-                    list.list.length - 1 === itemIndex ? "h-[14px]" : "h-8",
-                  ]}
-                />
-                <div class="mr-2 w-5 border-b border-dashed border-neutral-500" />
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </figure>
-      ))
-    }
-  </div> -->
-
-  <!-- <div class="my-4 w-full border-t-1 border-dashed border-neutral-500"></div> -->
-  <small
-    >Copyright &copy; 2025 ACH SYSTEMS. Todos los derechos reservados.</small
-  >
+    </div>
+  </div>
 </footer>

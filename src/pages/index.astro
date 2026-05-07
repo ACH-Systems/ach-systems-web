@@ -84,284 +84,282 @@ const services = [
 ---
 
 <Layout>
-  <Section>
-    <Image
-      src={Hero}
-      alt="[ACH systems]"
-      loading="eager"
-      class:list={["h-full w-full", "md:h-[calc(100vh-60px)]"]}
-    />
+  <Section class="p-0">
+    <div class="relative w-full h-[60vh] md:h-[calc(100vh-70px)] overflow-hidden">
+      <Image
+        src={Hero}
+        alt="ACH Systems - Soluciones tecnológicas para tu negocio"
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <div class="absolute bottom-10 left-0 right-0 flex flex-col items-center justify-center px-4 text-center">
+        <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide drop-shadow-lg animate-fade-in-up">
+          Transformamos tu negocio
+        </h1>
+        <p class="text-white/90 text-lg md:text-xl mt-3 max-w-2xl drop-shadow-md animate-fade-in-up" style="animation-delay: 200ms">
+          Sistemas personalizados para impulsar tu productividad
+        </p>
+      </div>
+    </div>
   </Section>
 
-  <Section class="py-8 lg:py-16">
+  <Section class="py-12 lg:py-20 px-4">
     <Heading
-      class="text-accent pb-6 lg:pb-12 text-center text-5xl font-extrabold uppercase"
-      >Descubre nuestros servicios</Heading
+      class="text-accent pb-8 lg:pb-16 text-center text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase"
+      transition:name="services-title"
     >
-    <div class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-7 px-5">
+      Descubre nuestros servicios
+    </Heading>
+    <div class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8 max-w-6xl mx-auto">
       {
-        services.map((service) => (
-          <Article>
-            <Flex class="mb-1 flex-row items-center">
-              {service.icon && <service.icon class="mr-2 size-7" />}
-              <Heading as="h3">{service.title}</Heading>
+        services.map((service, index) => (
+          <Article 
+            class="service-card group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-neutral-100"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <Flex class="mb-3 flex-row items-center gap-3">
+              <div class="p-2 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
+                {service.icon && <service.icon class="size-6 md:size-7 text-accent" />}
+              </div>
+              <Heading as="h3" class="text-xl font-bold">{service.title}</Heading>
             </Flex>
-            <Paragraph class="text-justify">{service.description}</Paragraph>
+            <Paragraph class="text-justify text-neutral-600 leading-relaxed">{service.description}</Paragraph>
           </Article>
         ))
       }
     </div>
   </Section>
 
-  <Section class="bg-neutral-400 py-8 lg:py-20 text-white">
-    <Box class="bg-primary mx-5 border-1 border-neutral-500 p-3 lg:p-5">
-      <Box class="border-1 border-neutral-500 p-4 lg:p-8 lg:px-20">
-        <Flex class="flex-col justify-center text-center">
-          <Heading class="mb-6 text-5xl/15 hidden lg:block">
-            ¿Deseas saber más de nuestros servicios?
+  <Section class="bg-gradient-to-b from-neutral-300 to-neutral-400 py-12 lg:py-24 text-white">
+    <Box class="bg-primary max-w-4xl mx-5 rounded-2xl border border-neutral-600 p-4 lg:p-8 shadow-2xl">
+      <Box class="border border-neutral-500 rounded-xl p-6 lg:p-12">
+        <Flex class="flex-col justify-center text-center gap-6">
+          <Heading class="text-3xl md:text-4xl lg:text-5xl hidden lg:block font-bold">
+            ¿Deseas conocer más de nuestros servicios?
           </Heading>
-          <p class="mb-6 text-2xl/15 font-bold block lg:hidden">
-            ¿Deseas saber más de nuestros servicios?
+          <p class="text-xl md:text-2xl font-bold block lg:hidden">
+            ¿Deseas conocer más de nuestros servicios?
           </p>
-          <a href="./contacto/" class="flex justify-center">
-            <Button3D>Haz click aquí</Button3D>
+          <a href="./contacto/" class="flex justify-center mt-4">
+            <Button3D>Contáctanos ahora</Button3D>
           </a>
         </Flex>
       </Box>
     </Box>
   </Section>
 
-  <Section class="flex flex-col justify-center py-8 lg:py-20">
-    <Flex class="mb-10 flex-col gap-6 text-center hidden lg:block">
-      <Heading class="text-5xl">
+  <Section class="flex flex-col justify-center py-12 lg:py-24 px-4">
+    <Flex class="mb-12 flex-col gap-6 text-center hidden lg:block">
+      <Heading class="text-5xl lg:text-6xl font-bold">
         ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
       </Heading>
-      <Heading class="text-accent text-5xl">O</Heading>
-      <Heading class="text-5xl">
+      <Heading class="text-accent text-5xl lg:text-6xl">O</Heading>
+      <Heading class="text-5xl lg:text-6xl font-bold">
         ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
       </Heading>
     </Flex>
-    <Flex class="mb-10 flex-col gap-6 text-center block lg:hidden">
-      <p class="text-3xl font-semibold">
-        ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
+    <Flex class="mb-12 flex-col gap-6 text-center block lg:hidden">
+      <p class="text-2xl md:text-3xl font-bold">
+        ¿MIEDO AL <span class="text-accent">CAMBIO</span>?
       </p>
-      <p class="text-accent text-3xl font-semibold">O</p>
-      <p class="text-3xl font-semibold">
-        ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
+      <p class="text-accent text-2xl md:text-3xl font-bold">O</p>
+      <p class="text-2xl md:text-3xl font-bold">
+        ¿MIEDO AL <span class="text-accent">MEJORAR</span>?
       </p>
     </Flex>
-    <Article class="mb-14 px-6 text-justify text-lg">
-      <Paragraph class="mb-4">
+    <Article class="max-w-4xl mx-auto mb-16 px-4 text-center md:text-justify">
+      <Paragraph class="mb-5 text-lg md:text-xl leading-relaxed text-neutral-700">
         Si, es cierto... Una empresa productiva no puede detenerse, pero ¿quién
-        dijo que necesita hacerlo para mejorar?... Ahhh espere, usted tiene
-        miedo a no adaptarse rápidamente al nuevo método de gestión para sus
-        servicios.
+        dijo que necesita hacerlo para mejorar? El miedo a no adaptarse rápidamente al nuevo método de gestión es común, pero no tiene por qué ser un obstáculo.
       </Paragraph>
-      <Paragraph>
-        No se preocupe, tenemos especialistas en diseños simples, únicos y
-        adaptados a su medida sin necesidad de un manual con cientos de páginas,
-        además tenemos soporte personalizado y si no posee conocimiento alguno
-        en referencia a tecnología o informática, contamos con sistemas
-        totalmente intuitivos, cómodos y diseñados para ser manejados con la
-        mínima experiencia tecnológica, ahorrando costos de operatividad,
-        reduciendo tiempos de espera y aumentando la eficiencia de su negocio.
+      <Paragraph class="text-lg md:text-xl leading-relaxed text-neutral-700">
+        Contamos con especialistas en diseños simples, únicos y adaptados a su medida sin necesidad de un manual extenso. Nuestro soporte personalizado y sistemas intuitivos están diseñados para usuarios con mínima experiencia tecnológica, permitiéndole ahorrar costos, reducir tiempos de espera y aumentar la eficiencia de su negocio.
       </Paragraph>
     </Article>
     <a href="./contacto/" class="flex justify-center">
-      <Button3D color="bg-neutral-500" class="w-50 text-white"
+      <Button3D color="bg-neutral-600" class="text-white px-8 py-4 text-lg"
         >¡Deseo automatizarme!</Button3D
       >
     </a>
   </Section>
 
-  <Section class="relative h-screen overflow-hidden">
+  <Section class="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
     <Box
       class:list={[
         "parallax-bg",
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg1.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
       ]}
     />
-    <Flex class="absolute inset-0 mx-10 items-center justify-center">
-      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
-        <Text class="bg-black/50 px-3"
+    <div class="absolute inset-0 bg-black/40"></div>
+    <Flex class="relative z-10 mx-4 md:mx-10 items-center justify-center">
+      <Heading class="text-center text-2xl md:text-4xl lg:text-5xl text-white uppercase font-bold tracking-wide">
+        <Text class="bg-black/60 px-4 py-2 rounded-lg"
           >EVITA PERDER EL ÓRDEN DE LAS HISTORIAS DE SUS PACIENTES</Text
         >
       </Heading>
     </Flex>
   </Section>
 
-  <Section class="py-8 lg:py-20">
-    <div class="px-5 lg:grid lg:grid-cols-2 items-center lg:gap-8 lg:px-10">
-      <Article class="flex flex-col justify-center mb-4 lg:mb-0">
-        <Heading class="mb-10 text-center leading-12 uppercase"
-          >&ldquo;Soy personal del área de salud y pienso que las <Text
-            class="text-accent">historias médicas manuales</Text
-          > son mas sencillas&rdquo;</Heading
+  <Section class="py-12 lg:py-24 px-4">
+    <div class="px-4 lg:grid lg:grid-cols-2 items-center lg:gap-12 lg:px-10 max-w-6xl mx-auto">
+      <Article class="flex flex-col justify-center mb-8 lg:mb-0">
+        <Heading class="mb-8 text-center leading-tight text-2xl md:text-3xl uppercase font-bold"
+          >&ldquo;Soy profesional del área de salud y pienso que las <Text
+            class="text-accent"
+            >historias médicas manuales</Text
+          > son más sencillo rdquo;</Heading
         >
-        <Paragraph class="mb-5 text-justify text-lg"
+        <Paragraph class="mb-6 text-justify text-lg leading-relaxed text-neutral-700"
           >Contamos con un equipo especializado en el diseño de sistemas
           totalmente accesibles para el personal de salud, especialmente en
-          formatos para historias médicas según la especialidad, además de
-          sustentarnos por diversos trabajos libres presentados en el Congreso
-          de Ingenieros Zulia 2024 “Ing. Emilio López” y próximamente en el
-          Congreso Científico Internacional de la facultad de medicina, “Dr.
-          Eduardo Mora La Cruz”.</Paragraph
+          formatos para historias médicas según la especialidad. Nuestros trabajos han sido presentados en el Congreso
+          de Ingenieros Zulia 2024 "Ing. Emilio López" y estamos próximos a participar en el
+          Congreso Científico Internacional de la Facultad de Medicina.</Paragraph
         >
-        <Paragraph class="mb-8 text-center text-lg font-semibold"
-          >¿Desea Conocerlo?</Paragraph
+        <Paragraph class="mb-8 text-center text-lg font-semibold text-accent"
+          >¿Desea conocerlo?</Paragraph
         >
         <a href="./proyectos/" class="flex justify-center">
-          <Button3D color="bg-neutral-300">Mira el artículo aquí</Button3D>
+          <Button3D color="bg-neutral-200">Ver proyectos</Button3D>
         </a>
       </Article>
       <Aside class="flex flex-col gap-4">
         <Image
           src={HomeAside1}
-          alt=""
+          alt="Sistema médico ACH Systems - Interfaz profesional"
           loading="eager"
-          class="w-full rounded-xl shadow-sm"
+          class="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
         />
         <Image
           src={HomeAside2}
-          alt=""
+          alt="Gestión de historias médicas digitales"
           loading="eager"
-          class="w-full rounded-xl shadow-sm"
+          class="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
         />
       </Aside>
     </div>
   </Section>
 
-  <Section class="relative h-screen overflow-hidden">
+  <Section class="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
     <Box
       class:list={[
         "parallax-bg",
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg2.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
       ]}
     />
-    <Flex class="absolute inset-0 mx-2 lg:mx-10 flex-col items-center justify-center">
-      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
-        <Text class="bg-black/50 px-3">EVITA EL DESASTRE EN PAPEL</Text>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <Flex class="relative z-10 mx-2 md:mx-10 flex-col items-center justify-center gap-4 md:gap-6">
+      <Heading class="text-center text-2xl md:text-4xl lg:text-5xl text-white uppercase font-bold tracking-wide">
+        <Text class="bg-black/60 px-4 py-2 rounded-lg">EVITA EL DESASTRE EN PAPEL</Text>
       </Heading>
-      <Heading class="text-center text-5xl/20 lg:text-6xl/30 text-white uppercase">
-        <Text class="bg-black/50 px-3">&lt;&lt; AUTOMATIZATE YA &gt;&gt;</Text>
+      <Heading class="text-center text-2xl md:text-4xl lg:text-5xl text-white uppercase font-bold tracking-wide">
+        <Text class="bg-accent px-6 py-2 rounded-lg">&lt;&lt; AUTOMATÍZATE YA &gt;&gt;</Text>
       </Heading>
     </Flex>
   </Section>
 
-  <Section class="py-8  lg:py-20">
-    <div class="px-5 lg:grid lg:grid-cols-2 items-center lg:gap-8 lg:px-10">
-      <Aside
+  <Section class="py-12 lg:py-24 px-4">
+    <div class="px-4 lg:grid lg:grid-cols-2 items-center lg:gap-12 lg:px-10 max-w-6xl mx-auto">
+      <Aside class="order-2 lg:order-1"
         ><Image
           src={HomeAside3}
-          alt=""
+          alt="Sistema administrativo para comercios"
           loading="eager"
-          class="w-full rounded-xl mb-4 lg:mb-0"
+          class="w-full rounded-xl shadow-lg mb-6 lg:mb-0 hover:shadow-xl transition-shadow duration-300"
         />
       </Aside>
-      <Article class="flex flex-col justify-center">
-        <Heading class="mb-10 text-center leading-12 uppercase">
+      <Article class="order-1 lg:order-2 flex flex-col justify-center">
+        <Heading class="mb-8 text-center leading-tight text-2xl md:text-3xl uppercase font-bold">
           &ldquo;Tengo un comercio y deseo un <Text class="text-accent"
-            >sistema sólo de recibos e inventarios</Text
+            >sistema de recibos e inventarios</Text
           >&rdquo;
         </Heading>
-        <Paragraph class="mb-10 text-justify text-lg">
-          Usted se encuentra en el lugar correcto, para nadie es un secreto que
-          en la mayoría de los Software administrativos existen cientos de
-          botones y funcionalidades que no quedan muy claras, no son viables
-          para pequeños comercios y no poseen una adaptación personalizada. Con
-          nuestros sistemas todo eso queda atrás. Las fórmulas de Excel tienden
-          a errores humanos cuando no se aplican correctamente, es por ello que
-          contar con un sistema a la medida de tu negocio generará un entorno
-          productivo y eficaz. Según la funcionalidad que desee, nuestros
-          ingenieros adaptarán módulos ideales para su nivel de manejabilidad.
+        <Paragraph class="mb-8 text-justify text-lg leading-relaxed text-neutral-700">
+          Usted se encuentra en el lugar correcto. La mayoría de los software administrativos tienen cientos de funcionalidades confusas que no se adaptan a pequeños comercios. Nosotros desarrollamos sistemas a la medida de tu negocio que generan un entorno productivo y eficaz. Nuestros ingenieros adaptarán módulos ideales para su nivel de manejabilidad.
         </Paragraph>
         <a href="./contacto/" class="flex justify-center">
-          <Button3D color="bg-neutral-300">Consulta aquí</Button3D>
+          <Button3D color="bg-neutral-200">Consultar ahora</Button3D>
         </a>
       </Article>
     </div>
   </Section>
 
-  <Section class="relative h-[75vh] overflow-hidden">
+  <Section class="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
     <Box
       class:list={[
         "parallax-bg",
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg3.webp')] bg-cover bg-fixed bg-center sepia",
       ]}
     />
-    <Flex class="absolute inset-0 mx-4 lg:mx-10 items-center justify-center">
-      <Heading class="text-center text-5xl/25 lg:text-6xl/30 text-white uppercase">
-        <Text class="bg-black/50 px-3"
-          >¿USTED TIENE DIFICULTAD PARA UTILIZAR LAS FUNCIONES BÁSICAS DE SU
-          TELÉFONO?
+    <div class="absolute inset-0 bg-black/50"></div>
+    <Flex class="relative z-10 mx-4 md:mx-10 items-center justify-center">
+      <Heading class="text-center text-xl md:text-3xl lg:text-4xl text-white uppercase font-bold tracking-wide">
+        <Text class="bg-black/60 px-4 py-2 rounded-lg"
+          >¿TIENES DIFICULTAD PARA USAR LAS FUNCIONES BÁSICAS DE TU TELÉFONO?
         </Text>
       </Heading>
     </Flex>
   </Section>
 
-  <Section class="bg-neutral-300">
+  <Section class="bg-neutral-200 py-12 lg:py-24">
     <Article
-      class="hidden lg:flex flex-col items-center justify-center gap-15 p-20 text-center"
+      class="hidden lg:flex flex-col items-center justify-center gap-10 p-12 text-center max-w-4xl mx-auto"
     >
-      <Heading class="text-6xl/20 !font-light"
-        >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</Heading
+      <Heading class="text-5xl font-light"
+        >¿Entonces?... ¿Qué esperas para solicitar tu sistema?</Heading
       >
-      <Heading class="text-accent italic"
-        >Tan fácil como utilizar su celular.</Heading
+      <Heading class="text-accent text-4xl italic"
+        >Tan fácil como usar tu celular.</Heading
       >
-      <Heading class="text-6xl">¿Aún no se decide?</Heading>
-      <a href="./contacto/">
-        <Button3D color="bg-neutral-600 text-white"
-          >SOLICITA TU ASESORÍA YA</Button3D
+      <Heading class="text-5xl font-bold">¿Aún no te decides?</Heading>
+      <a href="./contacto/" class="mt-4">
+        <Button3D color="bg-neutral-700 text-white px-8 py-4 text-lg"
+          >SOLICITA TU ASESORÍA</Button3D
         >
       </a>
     </Article>
     <Article
-      class="flex lg:hidden flex-col gap-5 items-center justify-center px-4 py-8 text-center"
+      class="flex lg:hidden flex-col gap-6 items-center justify-center px-6 py-10 text-center"
     >
-      <p class="text-3xl "
-        >¿Si?... Entonces ¿Qué espera para solicitar su sistema?</p
+      <p class="text-2xl md:text-3xl font-bold"
+        >¿Entonces?... ¿Qué esperas para solicitar tu sistema?</p
       >
-      <p class="text-2xl text-accent italic"
-        >Tan fácil como utilizar su celular.</p
+      <p class="text-xl md:text-2xl text-accent italic"
+        >Tan fácil como usar tu celular.</p
       >
-      <p class="text-3xl mb-4">¿Aún no se decide?</p>
+      <p class="text-2xl md:text-3xl font-bold mb-2">¿Aún no te decides?</p>
       <a href="./contacto/">
-        <Button3D color="bg-neutral-600 text-white"
-          >SOLICITA TU ASESORÍA YA</Button3D
+        <Button3D color="bg-neutral-700 text-white"
+          >SOLICITA TU ASESORÍA</Button3D
         >
       </a>
     </Article>
   </Section>
 
-  <Section class="py-8 lg:py-20">
-    <div class="px-5 lg:grid lg: grid-cols-2 items-center lg:gap-4 lg:px-10">
-      <Article class="flex flex-col justify-center">
-        <Heading class="mb-4 lg:mb-10 text-center leading-12 uppercase"
+  <Section class="py-12 lg:py-24 px-4">
+    <div class="px-4 lg:grid lg:grid-cols-2 items-center lg:gap-12 lg:px-10 max-w-6xl mx-auto">
+      <Article class="flex flex-col justify-center mb-8 lg:mb-0">
+        <Heading class="mb-6 lg:mb-10 text-center leading-tight text-2xl md:text-3xl uppercase font-bold"
           >&ldquo;<Text class="text-accent"
             >No tengo idea de lo que necesito</Text
-          > para automaticar mis actividades&rdquo;</Heading
+          > para automatizar mis actividades rdquo;</Heading
         >
-        <Paragraph class="mb-10 text-justify text-lg">
-          ¡No se preocupe! Tenemos asesoria gratuita, sólo debe llenar el
-          formulario de contacto y podrá agendar una de nuestras visitas
-          técnicas. Si desea realizar el proceso de forma rápida, puede
-          contactarnos a través de nuestros teléfonos, redes sociales o correo
-          electrónico y le enviaremos un ingeniero capacitado para determinar e
-          indicarle los requerimientos para un sistema adaptado a las
-          necesidades de su negocio, según el equipo que maneje y el
-          conocimiento de su personal.
+        <Paragraph class="mb-8 text-justify text-lg leading-relaxed text-neutral-700">
+          ¡No se preocupe! Brindamos asesoría gratuita. Solo complete el
+          formulario de contacto para agendar una visita técnica. También puede
+          contactarnos por teléfono, redes sociales o correo electrónico. Un ingeniero capacitado evaluará su negocio para determinar los requerimientos идеales para un sistema adaptado a sus necesidades.
         </Paragraph>
         <a href="./contacto/" class="flex justify-center">
-          <Button3D color="bg-neutral-300">Contáctanos</Button3D>
+          <Button3D color="bg-neutral-200">Contáctanos</Button3D>
         </a>
       </Article>
       <Aside class="flex items-center justify-center"
         ><Image
           src={HomeAside4}
-          alt=""
+          alt="Equipo ACH Systems - Expertos en tecnología"
           loading="eager"
-          class="w-full rounded-xl"
+          class="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
         />
       </Aside>
     </div>
