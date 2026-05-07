@@ -8,29 +8,33 @@ import { Box, Flex, Grid, Heading, Image } from "~components/ui";
 ---
 
 <Layout>
-  <Box class="p-4">
-    <Heading as="h2" class="pb-5 text-center"
+  <Box class="mx-auto w-full max-w-7xl p-4 sm:px-6 lg:px-8 lg:py-8">
+    <Heading as="h2" class="pb-2 text-center text-primary"
       >Nuestro portafolio de proyectos</Heading
     >
-    <Flex class="w-full border-t border-dashed border-neutral-600 pb-10" , />
+    <p class="mx-auto mb-6 max-w-3xl text-center text-sm text-slate-600 sm:text-base">
+      Conoce implementaciones reales enfocadas en productividad, simplicidad de uso y control operativo.
+    </p>
+    <Flex class="mb-8 w-full border-t border-dashed border-neutral-400" />
     <Grid
       class:list={[
-        "gap-5",
+        "gap-4 sm:gap-5",
         "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
       ]}
+      data-stagger
     >
       <a href="./sistema-web-laboratorio-hinestroza-ferrer/">
         <div
-          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-2 text-center shadow-md"
+          class="surface-card flex h-full min-h-84 w-full flex-col items-center gap-y-4 overflow-hidden rounded-2xl p-3 text-center transition-all duration-250 hover:-translate-y-1"
         >
           <figure>
             <Image
               src={sistemaWebLaboratorioHinestrozaFerrerThumb}
               alt=""
-              class="h-40 w-full max-w-xs rounded-xl"
+              class="h-44 w-full max-w-xs rounded-xl object-cover"
             />
           </figure>
-          <h2 class="text-xl font-light">
+          <h2 class="text-lg font-semibold text-primary sm:text-xl">
             Sistema de Información Web para la Gestión de Servicios en el
             Clínico Hinestroza Ferrer C.A
           </h2>
@@ -38,16 +42,16 @@ import { Box, Flex, Grid, Heading, Image } from "~components/ui";
       </a>
       <a href="./sistema-historial-medico-los-olivos/">
         <div
-          class="flex h-80 w-full flex-col items-center gap-y-5 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 p-2 text-center shadow-md"
+          class="surface-card flex h-full min-h-84 w-full flex-col items-center gap-y-4 overflow-hidden rounded-2xl p-3 text-center transition-all duration-250 hover:-translate-y-1"
         >
           <figure>
             <Image
               src={sistemaHistorialMedicoLosOlivosThumb}
               alt=""
-              class="h-40 w-full max-w-xs rounded-xl"
+              class="h-44 w-full max-w-xs rounded-xl object-cover"
             />
           </figure>
-          <h2 class="text-xl font-light">
+          <h2 class="text-lg font-semibold text-primary sm:text-xl">
             Sistema de Historial Médico - Centro Clínico Los Olivos
           </h2>
         </div>

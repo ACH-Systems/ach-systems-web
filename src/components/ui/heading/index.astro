@@ -26,7 +26,7 @@ const fontSize: Partial<Record<FontSize, string>> = {
   as === "h1" && (
     <h1
       class:list={[
-        "text-4xl font-bold",
+        "text-4xl font-extrabold",
         size && fontSize[size],
         attrs.class,
         attrs["class:list"],
@@ -39,7 +39,7 @@ const fontSize: Partial<Record<FontSize, string>> = {
 }
 {
   as === "h2" && (
-    <h1
+    <h2
       class:list={[
         "text-3xl font-bold",
         size && fontSize[size],
@@ -49,12 +49,12 @@ const fontSize: Partial<Record<FontSize, string>> = {
       {...attrs}
     >
       <slot />
-    </h1>
+    </h2>
   )
 }
 {
   as === "h3" && (
-    <h1
+    <h3
       class:list={[
         "text-2xl font-bold",
         size && fontSize[size],
@@ -64,7 +64,7 @@ const fontSize: Partial<Record<FontSize, string>> = {
       {...attrs}
     >
       <slot />
-    </h1>
+    </h3>
   )
 }
 {

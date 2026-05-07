@@ -16,23 +16,26 @@ import {
 
 <Layout>
   <Section
-    class="flex w-screen flex-col items-center justify-center gap-x-10 px-4 py-6 lg:px-10 lg:py-15 md:flex-row"
+    class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-start lg:gap-10 lg:px-8 lg:py-14"
   >
-    <Article class="flex w-full flex-col items-center text-center md:order-2">
-      <Heading class="mb-5 text-center hidden lg:block">CONTACTO DIRECTO:</Heading>
-      <p class="mb-5 text-center font-bold text-2xl lg:hidden block">CONTACTO DIRECTO:</p>
+    <Article class="surface-card order-2 flex w-full flex-col items-center rounded-2xl p-4 text-center md:order-2 lg:p-6">
+      <Heading class="mb-3 hidden text-center text-primary lg:block">CONTACTO DIRECTO:</Heading>
+      <p class="mb-3 block text-center text-2xl font-bold text-primary lg:hidden">CONTACTO DIRECTO:</p>
+      <p class="mb-4 text-sm text-slate-600">
+        Respuesta rápida por redes, correo o WhatsApp.
+      </p>
       <Image
         src={HeroSmall}
         alt=""
         loading="eager"
-        class="mb-5 rounded shadow-sm"
+        class="mb-5 rounded-xl border border-slate-200 shadow-md"
       />
-      <Heading as="h2" class="mb-5 text-center hidden lg:block">ENCUENTRANOS EN:</Heading>
-      <h2 class="mb-5 text-center font-bold text-2xl lg:hidden block">ENCUENTRANOS EN:</h2>
-      <Grid class="grid-cols-5 gap-x-2 lg:gap-x-10 mb-5 lg:mb-0">
+      <Heading as="h2" class="mb-5 hidden text-center text-primary lg:block">ENCUÉNTRANOS EN:</Heading>
+      <h2 class="mb-5 block text-center text-2xl font-bold text-primary lg:hidden">ENCUÉNTRANOS EN:</h2>
+      <Grid class="mb-5 grid-cols-5 gap-x-2 lg:mb-0 lg:gap-x-4">
         <a target="_blank" href="https://www.instagram.com/achsystems" class="inline-flex">
           <Button
-            bgColor="bg-gradient-to-tr from-yellow-500 via-pink-600 to-blue-500"
+            bgColor="bg-gradient-to-tr from-yellow-500 via-pink-600 to-blue-500 rounded-xl"
           >
             <Flex class="flex items-center justify-center">
               <Instagram class="size-6 lg:size-8 fill-white" />
@@ -40,42 +43,40 @@ import {
           </Button>
         </a>
         <a target="_blank" href="https://wa.me/+584246375061">
-          <Button bgColor="bg-[#128c7e]">
+          <Button bgColor="bg-[#128c7e] rounded-xl">
             <Flex class="flex items-center justify-center">
               <WhatsApp class="size-6 lg:size-8 fill-white" />
             </Flex>
           </Button>
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/">
-          <Button bgColor="bg-[#0a66c2]">
+          <Button bgColor="bg-[#0a66c2] rounded-xl">
             <Flex class="flex items-center justify-center">
               <LinkedIn class="size-6 lg:size-8 fill-white" />
             </Flex>
           </Button>
         </a>
         <a target="_blank" href="https://t.me/achsystems">
-          <Button bgColor="bg-[#0088cc]">
+          <Button bgColor="bg-[#0088cc] rounded-xl">
             <Flex class="flex items-center justify-center">
               <Telegram class="size-6 lg:size-8 fill-white" />
             </Flex>
           </Button>
         </a>
         <a target="_blank" href="mailto:achsystems@hotmail.com">
-          <Button bgColor="bg-gray-600">
+          <Button bgColor="bg-gray-600 rounded-xl">
             <Flex class="flex items-center justify-center">
               <Mail class="size-6 lg:size-8 text-white" />
             </Flex>
           </Button>
         </a>
       </Grid>
-      <!-- <Flex
-        class:list={[
-          "w-full border-t border-dashed border-neutral-600",
-          "md:hidden",
-        ]}
-      /> -->
     </Article>
-    <Article class="flex w-full flex-col md:order-1">
+    <Article class="surface-card order-1 flex w-full flex-col rounded-2xl p-4 md:order-1 lg:p-7">
+      <Heading as="h2" class="mb-2 text-primary">Solicita una asesoría personalizada</Heading>
+      <p class="mb-5 text-sm text-slate-600">
+        Cuéntanos tu necesidad y te responderemos con una propuesta de solución adaptada a tu negocio.
+      </p>
       <form
         action="https://formspree.io/f/xkgbrojp"
         method="POST"
@@ -150,7 +151,7 @@ import {
             class="textarea w-full border-black !outline-none focus:border-[#be9d34] focus:border-2 focus:shadow-lg"></textarea>
         </fieldset>
 
-        <button class="btn btn-accent mt-3 text-white">Enviar</button>
+        <button class="btn btn-accent mt-4 text-white">Enviar solicitud</button>
       </form>
       <Article />
     </Article>

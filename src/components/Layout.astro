@@ -6,24 +6,33 @@ const { title = "ACH SYSTEMS" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ACH Systems desarrolla sistemas hechos a medida para empresas, sector salud y emprendimientos con enfoque en productividad y diseño intuitivo."
+    />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
   </head>
-  <body class="bg-white w-screen overflow-x-hidden">
+  <body class="w-screen overflow-x-hidden antialiased">
+    <div
+      id="scroll-progress"
+      class="fixed inset-x-0 top-0 z-60 h-1 bg-gradient-to-r from-accent via-amber-500 to-primary"
+    >
+    </div>
     <Header />
     <div
       id="blur"
-      class="pointer-events-none fixed z-2 size-full transition-all duration-200"
+      class="pointer-events-none fixed z-40 size-full transition-all duration-200"
     >
     </div>
-    <div class="flex min-h-screen flex-col w-full">
-      <div class="flex flex-grow max-w-screen overflow-x-hidden">
+    <div class="flex min-h-screen w-full flex-col">
+      <div class="flex max-w-screen flex-grow overflow-x-hidden">
         <Content>
           <slot />
         </Content>
@@ -34,11 +43,90 @@ const { title = "ACH SYSTEMS" } = Astro.props;
 </html>
 
 <script>
+  import { animate, inView, stagger } from "motion";
   import { isAccordionOpen } from "../stores";
 
   const blur = document.querySelector("#blur");
   const body = document.querySelector("body");
   const isMdScreen = window.matchMedia("(min-width: 768px)");
+
+  function updateScrollProgress() {
+    const progressBar = document.querySelector("#scroll-progress");
+    if (!(progressBar instanceof HTMLElement)) return;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+  }
+
+  function setupMotionReveal() {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reducedMotion) return;
+
+    const revealTargets = document.querySelectorAll("main > section, [data-reveal]");
+    revealTargets.forEach((element, index) => {
+      if (element instanceof HTMLElement) {
+        const yOffset = Number(element.dataset.revealY ?? 32);
+        const delay = Number(element.dataset.revealDelay ?? index * 0.02);
+        element.style.opacity = "0";
+        element.style.transform = `translateY(${yOffset}px)`;
+
+        inView(
+          element,
+          () => {
+            if (element.dataset.revealed === "true") return;
+            element.dataset.revealed = "true";
+            animate(
+              element,
+              {
+                opacity: [0, 1],
+                transform: [`translateY(${yOffset}px)`, "translateY(0px)"],
+              },
+              {
+                duration: 0.75,
+                ease: [0.22, 1, 0.36, 1],
+                delay,
+              },
+            );
+          },
+          { margin: "0px 0px -12% 0px" },
+        );
+      }
+    });
+
+    const staggerGroups = document.querySelectorAll("[data-stagger]");
+    staggerGroups.forEach((group) => {
+      const items = Array.from(group.children);
+      if (!items.length) return;
+
+      items.forEach((item) => {
+        if (item instanceof HTMLElement) {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(24px)";
+        }
+      });
+
+      inView(
+        group,
+        () => {
+          animate(
+            items,
+            {
+              opacity: [0, 1],
+              transform: ["translateY(24px)", "translateY(0px)"],
+            },
+            {
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+              delay: stagger(0.1, { startDelay: 0.05 }),
+            },
+          );
+        },
+        { margin: "0px 0px -10% 0px" },
+      );
+    });
+  }
 
   function disableBlur() {
     blur?.classList.add("pointer-events-none");
@@ -55,12 +143,16 @@ const { title = "ACH SYSTEMS" } = Astro.props;
       blur?.classList.add(
         "pointer-events-auto",
         "backdrop-blur-xs",
-        "bg-black/50",
+        "bg-slate-900/45",
       );
       blur?.classList.remove("pointer-events-none");
       body?.classList.add("overflow-hidden");
     } else disableBlur();
   });
+
+  document.addEventListener("scroll", updateScrollProgress, { passive: true });
+  updateScrollProgress();
+  setupMotionReveal();
 
   blur?.addEventListener("click", function () {
     if (isAccordionOpen.get()) {
