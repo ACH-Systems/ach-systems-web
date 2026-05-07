@@ -3,9 +3,18 @@
   themes: light --default;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+
 @font-face {
   font-family: "Roboto";
   src: url("./assets/fonts/Roboto.ttf");
+}
+
+:root {
+  --surface-soft: #f7f8fc;
+  --surface-strong: #edf0f7;
+  --text-default: #18202f;
+  --text-muted: #4b5563;
 }
 
 /* @theme {
@@ -33,4 +42,52 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", "Roboto", sans-serif;
+  color: var(--text-default);
+  background:
+    radial-gradient(circle at 15% 20%, #f4f8ff 0%, transparent 35%),
+    radial-gradient(circle at 85% 10%, #fff7e4 0%, transparent 30%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", "Manrope", sans-serif;
+  letter-spacing: -0.015em;
+}
+
+main {
+  color: var(--text-default);
+}
+
+.surface-card {
+  border: 1px solid rgb(148 163 184 / 0.18);
+  background: rgb(255 255 255 / 0.82);
+  box-shadow:
+    0 20px 40px rgb(15 23 42 / 0.08),
+    0 2px 6px rgb(15 23 42 / 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.brand-grid {
+  background-image:
+    linear-gradient(rgb(30 41 59 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(30 41 59 / 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+#scroll-progress {
+  transform-origin: left;
+  transform: scaleX(0);
 }

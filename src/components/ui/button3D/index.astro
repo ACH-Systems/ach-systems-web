@@ -10,17 +10,17 @@ const { color = "bg-white", ...attrs } = Astro.props;
 
 <div
   class:list={[
-    "relative z-0 ml-3 cursor-pointer self-center border-none bg-transparent p-0",
+    "relative z-0 inline-flex cursor-pointer self-center border-none bg-transparent p-0",
   ]}
 >
   <span
     class:list={[
-      "absolute top-0 left-0 h-full w-60 lg:w-80 rounded-xl brightness-80",
+      "absolute top-0 left-0 h-full w-full rounded-xl brightness-80",
       color,
     ]}></span>
   <button
     class:list={[
-      "text-12 relative block w-60 lg:w-80 -translate-y-[6px] cursor-pointer rounded-xl px-6 py-4 text-xl font-bold text-black transition-all duration-100 select-none",
+      "text-12 relative block min-w-52 -translate-y-[6px] cursor-pointer rounded-xl px-6 py-4 text-lg font-bold text-black transition-all duration-100 select-none sm:min-w-60 lg:min-w-72 lg:text-xl",
       "hover:-translate-y-[8px] hover:brightness-110 hover:duration-600",
       "active:-translate-y-1 active:duration-30",
       color,

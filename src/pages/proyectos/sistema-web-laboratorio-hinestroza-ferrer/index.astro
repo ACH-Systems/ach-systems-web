@@ -43,17 +43,23 @@ const images = [
 ];
 ---
 
-<Layout>
-  <Box class="flex w-screen flex-col items-center justify-center p-4">
-    <Heading as="h2" class="pb-7 text-center">
+<Layout
+  title="Proyecto Laboratorio Hinestroza Ferrer | ACH Systems"
+  description="Caso de éxito: sistema web para gestión de servicios clínicos en Laboratorio Hinestroza Ferrer C.A., diseñado para mejorar control y productividad."
+  keywords="sistema web laboratorio, software para laboratorio clinico, gestion de servicios clinicos"
+  type="article"
+>
+  <Box class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center p-4 sm:px-6 lg:px-8 lg:py-6">
+    <Heading as="h2" class="pb-3 text-center text-primary">
       Sistema de Información Web para la Gestión de Servicios en la Clínico
       Hinestroza Ferrer C.A
     </Heading>
-    <Flex
-      class="hidden w-full border-t border-dashed border-neutral-600 lg:block lg:pb-10"
-    />
+    <p class="mb-4 max-w-3xl text-center text-sm text-slate-600 sm:text-base">
+      Plataforma desarrollada para agilizar procesos clínicos, mejorar el control operativo y facilitar la gestión diaria del laboratorio.
+    </p>
+    <Flex class="mb-6 w-full border-t border-dashed border-neutral-400" />
     <section
-      class="relative flex max-w-screen flex-col items-center justify-center p-4 lg:max-w-400"
+      class="surface-card relative flex w-full max-w-screen flex-col items-center justify-center rounded-2xl p-3 lg:max-w-5xl lg:p-5"
     >
       <div
         id="carousel"
@@ -79,6 +85,7 @@ const images = [
         <button class="next-btn btn btn-circle"><ChevronRight /></button>
       </div>
       <div class="mt-2 flex w-full justify-center lg:gap-3">
+      <div class="mt-2 flex w-full justify-center lg:gap-3">
         {
           images.map((_, index) => (
             <button class="indicator-btn" data-index={index}>
@@ -88,7 +95,7 @@ const images = [
         }
       </div>
     </section>
-    <Section class="flex flex-col gap-3 text-justify lg:my-10">
+    <Section class="my-8 flex max-w-5xl flex-col gap-3 rounded-2xl text-justify lg:my-10">
       <Paragraph
         >Éste sistema fue diseñado en base a la identidad organizativa ya
         establecida de laboratorio, como medio principal se estableció la
@@ -110,7 +117,7 @@ const images = [
     </Section>
   </Box>
   <Section
-    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 text-white lg:px-15 lg:py-20"
+    class="flex flex-col items-center justify-center bg-neutral-400/90 px-4 py-10 text-white lg:px-15 lg:py-20"
   >
     <Heading class="mb-8 hidden text-center text-black lg:block">
       ¿Te gustaría optar un sistema como éste?

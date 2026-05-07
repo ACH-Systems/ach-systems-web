@@ -1,47 +1,110 @@
-<footer
-  class:list={[
-    "bg-primary z-3 flex h-full flex-col items-center p-6 text-white shadow-md",
-  ]}
->
-  <!-- <div class="flex flex-row justify-center gap-15 py-10">
-    <figure class="flex w-75 flex-col">
-      <img src="../src/assets/img/logo.png" class="w-50" />
-      <figcaption class="my-3 font-bold italic">
-        Innovación para la eficiencia
-      </figcaption>
-      <p>
-        Somos una empresa venezolana dedicada a la implementacion de soluciones
-        tecnologicas para tu negocio.
+---
+import { Mail, MapPin, Phone } from "@lucide/astro";
+import { Instagram, LinkedIn, Telegram, WhatsApp } from "~assets/icons";
+
+const quickLinks = [
+  { label: "Servicios", path: "/" },
+  { label: "Nosotros", path: "/nosotros/" },
+  { label: "Portafolio", path: "/proyectos/" },
+  { label: "Contacto", path: "/contacto/" },
+];
+---
+
+<footer class="relative z-3 mt-10 overflow-hidden bg-primary text-white shadow-xl shadow-slate-900/20">
+  <div class="brand-grid pointer-events-none absolute inset-0 opacity-20"></div>
+  <div class="relative mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:px-6 lg:grid-cols-3 lg:px-8">
+    <div class="flex flex-col gap-3">
+      <p class="text-xs font-extrabold tracking-[0.2em] text-accent">ACH SYSTEMS</p>
+      <h3 class="text-2xl font-bold leading-tight text-white">
+        Sistemas a medida para empresas que buscan orden, control y crecimiento.
+      </h3>
+      <p class="text-sm text-slate-200">
+        Diseñamos soluciones para sector salud, comercios y emprendimientos con
+        enfoque en usabilidad, soporte humano y productividad real.
       </p>
-    </figure>
+    </div>
 
-    {
-      lists.map((list) => (
-        <figure>
-          <figcaption class="text-xl font-bold uppercase">
-            {list.name}
-          </figcaption>
-          <ul class="text-left text-lg">
-            {list.list.map((item, itemIndex) => (
-              <li class:list={["flex flex-row items-center"]}>
-                <div
-                  class:list={[
-                    "flex self-start border-l border-dashed border-neutral-500",
-                    list.list.length - 1 === itemIndex ? "h-[14px]" : "h-8",
-                  ]}
-                />
-                <div class="mr-2 w-5 border-b border-dashed border-neutral-500" />
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </figure>
-      ))
-    }
-  </div> -->
+    <div class="flex flex-col gap-3">
+      <h4 class="text-sm font-extrabold tracking-[0.16em] text-accent">NAVEGACIÓN</h4>
+      <div class="grid grid-cols-2 gap-2">
+        {
+          quickLinks.map((item) => (
+            <a
+              href={item.path}
+              class="rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white/90 transition-all duration-200 hover:bg-white/15"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+      <div class="mt-2 flex items-center gap-2">
+        <a
+          href="https://www.instagram.com/achsystems"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="rounded-lg border border-white/15 bg-white/8 p-2 transition-all duration-200 hover:bg-white/15"
+        >
+          <Instagram class="size-4 fill-white" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="rounded-lg border border-white/15 bg-white/8 p-2 transition-all duration-200 hover:bg-white/15"
+        >
+          <LinkedIn class="size-4 fill-white" />
+        </a>
+        <a
+          href="https://t.me/achsystems"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram"
+          class="rounded-lg border border-white/15 bg-white/8 p-2 transition-all duration-200 hover:bg-white/15"
+        >
+          <Telegram class="size-4 fill-white" />
+        </a>
+        <a
+          href="https://wa.me/584246375061"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          class="rounded-lg border border-white/15 bg-white/8 p-2 transition-all duration-200 hover:bg-white/15"
+        >
+          <WhatsApp class="size-4 fill-white" />
+        </a>
+      </div>
+    </div>
 
-  <!-- <div class="my-4 w-full border-t-1 border-dashed border-neutral-500"></div> -->
-  <small
-    >Copyright &copy; 2025 ACH SYSTEMS. Todos los derechos reservados.</small
-  >
+    <div class="flex flex-col gap-3">
+      <h4 class="text-sm font-extrabold tracking-[0.16em] text-accent">CONTACTO</h4>
+      <a
+        href="https://wa.me/584246375061"
+        class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 px-3 py-2 text-sm font-semibold"
+      >
+        <Phone class="size-4" />
+        +58 424-637-5061
+      </a>
+      <a
+        href="mailto:achsystems@hotmail.com"
+        class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 px-3 py-2 text-sm font-semibold"
+      >
+        <Mail class="size-4" />
+        achsystems@hotmail.com
+      </a>
+      <p class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 px-3 py-2 text-sm text-white/90">
+        <MapPin class="size-4" />
+        Maracaibo, Venezuela
+      </p>
+      <p class="text-xs text-slate-300">
+        Horario de atención: Lunes a Domingo, 8:00 AM - 8:00 PM
+      </p>
+    </div>
+  </div>
+
+  <div class="relative border-t border-white/10 px-5 py-4 text-center text-xs text-slate-300 sm:px-6">
+    Copyright &copy; 2026 ACH SYSTEMS. Todos los derechos reservados.
+  </div>
 </footer>

@@ -2,28 +2,132 @@
 import { Content, Footer, Header } from ".";
 import "../global.css";
 
-const { title = "ACH SYSTEMS" } = Astro.props;
+type StructuredData = Record<string, unknown>;
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  canonical?: string;
+  noindex?: boolean;
+  type?: "website" | "article";
+  structuredData?: StructuredData | StructuredData[];
+}
+
+const {
+  title = "ACH Systems | Desarrollo de Sistemas a Medida",
+  description =
+    "ACH Systems desarrolla sistemas hechos a medida para empresas, sector salud y emprendimientos con enfoque en productividad y diseño intuitivo.",
+  keywords =
+    "desarrollo de sistemas, sistemas a medida, software empresarial, software medico, automatizacion de procesos, sistemas administrativos, Venezuela",
+  image = "/favicon.png",
+  canonical,
+  noindex = false,
+  type = "website",
+  structuredData,
+} = Astro.props as Props;
+
+const siteUrl = Astro.site ?? new URL("https://achsystem.es");
+const pagePath = Astro.url.pathname || "/";
+const canonicalUrl = canonical
+  ? new URL(canonical, siteUrl).toString()
+  : new URL(pagePath, siteUrl).toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+const robotsValue = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+
+const orgSchema: StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ACH Systems",
+  url: siteUrl.toString(),
+  logo: new URL("/favicon.png", siteUrl).toString(),
+  email: "achsystems@hotmail.com",
+  telephone: "+58 424-637-5061",
+  sameAs: [
+    "https://www.instagram.com/achsystems",
+    "https://www.linkedin.com/in/ach-systems-2025-4146700191-/",
+    "https://t.me/achsystems",
+  ],
+};
+
+const websiteSchema: StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "ACH Systems",
+  url: siteUrl.toString(),
+  inLanguage: "es",
+  publisher: {
+    "@type": "Organization",
+    name: "ACH Systems",
+  },
+};
+
+const userSchemas = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+
+const schemas = [orgSchema, websiteSchema, ...userSchemas];
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content={robotsValue} />
+    <meta name="googlebot" content={robotsValue} />
+    <meta name="author" content="ACH Systems" />
+    <meta name="theme-color" content="#212121" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:site_name" content="ACH Systems" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+
     <title>{title}</title>
   </head>
-  <body class="bg-white w-screen overflow-x-hidden">
+  <body class="w-screen overflow-x-hidden antialiased">
+    <div
+      id="scroll-progress"
+      class="fixed inset-x-0 top-0 z-60 h-1 bg-gradient-to-r from-accent via-amber-500 to-primary"
+    >
+    </div>
     <Header />
     <div
       id="blur"
-      class="pointer-events-none fixed z-2 size-full transition-all duration-200"
+      class="pointer-events-none fixed z-40 size-full transition-all duration-200"
     >
     </div>
-    <div class="flex min-h-screen flex-col w-full">
-      <div class="flex flex-grow max-w-screen overflow-x-hidden">
+    <div class="flex min-h-screen w-full flex-col">
+      <div class="flex max-w-screen flex-grow overflow-x-hidden">
         <Content>
           <slot />
         </Content>
@@ -34,11 +138,90 @@ const { title = "ACH SYSTEMS" } = Astro.props;
 </html>
 
 <script>
+  import { animate, inView, stagger } from "motion";
   import { isAccordionOpen } from "../stores";
 
   const blur = document.querySelector("#blur");
   const body = document.querySelector("body");
   const isMdScreen = window.matchMedia("(min-width: 768px)");
+
+  function updateScrollProgress() {
+    const progressBar = document.querySelector("#scroll-progress");
+    if (!(progressBar instanceof HTMLElement)) return;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+  }
+
+  function setupMotionReveal() {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reducedMotion) return;
+
+    const revealTargets = document.querySelectorAll("main > section, [data-reveal]");
+    revealTargets.forEach((element, index) => {
+      if (element instanceof HTMLElement) {
+        const yOffset = Number(element.dataset.revealY ?? 32);
+        const delay = Number(element.dataset.revealDelay ?? index * 0.02);
+        element.style.opacity = "0";
+        element.style.transform = `translateY(${yOffset}px)`;
+
+        inView(
+          element,
+          () => {
+            if (element.dataset.revealed === "true") return;
+            element.dataset.revealed = "true";
+            animate(
+              element,
+              {
+                opacity: [0, 1],
+                transform: [`translateY(${yOffset}px)`, "translateY(0px)"],
+              },
+              {
+                duration: 0.75,
+                ease: [0.22, 1, 0.36, 1],
+                delay,
+              },
+            );
+          },
+          { margin: "0px 0px -12% 0px" },
+        );
+      }
+    });
+
+    const staggerGroups = document.querySelectorAll("[data-stagger]");
+    staggerGroups.forEach((group) => {
+      const items = Array.from(group.children);
+      if (!items.length) return;
+
+      items.forEach((item) => {
+        if (item instanceof HTMLElement) {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(24px)";
+        }
+      });
+
+      inView(
+        group,
+        () => {
+          animate(
+            items,
+            {
+              opacity: [0, 1],
+              transform: ["translateY(24px)", "translateY(0px)"],
+            },
+            {
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+              delay: stagger(0.1, { startDelay: 0.05 }),
+            },
+          );
+        },
+        { margin: "0px 0px -10% 0px" },
+      );
+    });
+  }
 
   function disableBlur() {
     blur?.classList.add("pointer-events-none");
@@ -46,6 +229,7 @@ const { title = "ACH SYSTEMS" } = Astro.props;
       "pointer-events-auto",
       "backdrop-blur-xs",
       "bg-black/50",
+      "bg-slate-900/45",
     );
     body?.classList.remove("overflow-hidden");
   }
@@ -55,12 +239,16 @@ const { title = "ACH SYSTEMS" } = Astro.props;
       blur?.classList.add(
         "pointer-events-auto",
         "backdrop-blur-xs",
-        "bg-black/50",
+        "bg-slate-900/45",
       );
       blur?.classList.remove("pointer-events-none");
       body?.classList.add("overflow-hidden");
     } else disableBlur();
   });
+
+  document.addEventListener("scroll", updateScrollProgress, { passive: true });
+  updateScrollProgress();
+  setupMotionReveal();
 
   blur?.addEventListener("click", function () {
     if (isAccordionOpen.get()) {

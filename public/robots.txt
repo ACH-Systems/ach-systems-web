@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://achsystem.es/sitemap.xml
+Host: achsystem.es

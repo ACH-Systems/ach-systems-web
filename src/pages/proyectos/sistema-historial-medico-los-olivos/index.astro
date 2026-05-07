@@ -24,16 +24,22 @@ import {
 const images = [img0, img1, img2, img3, img4, img5, img6, img7];
 ---
 
-<Layout>
-  <Box class="flex w-screen flex-col items-center justify-center p-4">
-    <Heading as="h2" class="pb-7 text-center">
+<Layout
+  title="Proyecto Historial Médico Los Olivos | ACH Systems"
+  description="Caso de éxito: sistema de historial médico para el Centro Clínico Los Olivos, enfocado en seguridad de datos, rapidez y trazabilidad clínica."
+  keywords="sistema historial medico, software clinico, expediente medico digital"
+  type="article"
+>
+  <Box class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center p-4 sm:px-6 lg:px-8 lg:py-6">
+    <Heading as="h2" class="pb-3 text-center text-primary">
       Sistema de Historial Médico - Centro Clínico Los Olivos
     </Heading>
-    <Flex
-      class="hidden w-full border-t border-dashed border-neutral-600 lg:block lg:pb-10"
-    />
+    <p class="mb-4 max-w-3xl text-center text-sm text-slate-600 sm:text-base">
+      Solución enfocada en registro clínico seguro, consulta rápida y flujos de trabajo simples para el personal médico.
+    </p>
+    <Flex class="mb-6 w-full border-t border-dashed border-neutral-400" />
     <section
-      class="relative flex max-w-screen flex-col items-center justify-center p-4 lg:max-w-400"
+      class="surface-card relative flex w-full max-w-screen flex-col items-center justify-center rounded-2xl p-3 lg:max-w-5xl lg:p-5"
     >
       <div
         id="carousel"
@@ -68,7 +74,7 @@ const images = [img0, img1, img2, img3, img4, img5, img6, img7];
         }
       </div>
     </section>
-    <Section class="flex flex-col gap-3 text-justify lg:my-10">
+    <Section class="my-8 flex max-w-5xl flex-col gap-3 text-justify lg:my-10">
       <Paragraph
         >Este sistema de historial médico fue diseñado para garantizar
         simplicidad e intuitividad, permitiendo que el personal de salud
@@ -78,17 +84,17 @@ const images = [img0, img1, img2, img3, img4, img5, img6, img7];
         asegurando un flujo de datos seguro y organizado. Aunque es una
         plataforma web, cuenta con respaldo local para proteger la información y
         mantener la operatividad sin interrupciones.
-        <Paragraph
-          >La presentación de cuadros y tablas ha sido adaptada a los requisitos
-          del cliente, brindando una interfaz clara y ordenada. Esto permite la
-          consulta rápida y precisa de datos médicos, mejorando los procesos de
-          administración dentro del centro de salud.</Paragraph
-        >
+      </Paragraph>
+      <Paragraph>
+        La presentación de cuadros y tablas ha sido adaptada a los requisitos
+        del cliente, brindando una interfaz clara y ordenada. Esto permite la
+        consulta rápida y precisa de datos médicos, mejorando los procesos de
+        administración dentro del centro de salud.
       </Paragraph>
     </Section>
   </Box>
   <Section
-    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 text-white lg:px-15 lg:py-20"
+    class="flex flex-col items-center justify-center bg-neutral-400/90 px-4 py-10 text-white lg:px-15 lg:py-20"
   >
     <Heading class="mb-8 hidden text-center text-black lg:block">
       ¿Te gustaría optar un sistema como éste?
