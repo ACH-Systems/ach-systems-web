@@ -10,12 +10,7 @@ import {
   img5,
   img6,
   img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-} from "~assets/img/proyectos/sistema-web-laboratorio-hinestroza-ferrer";
+} from "~assets/img/proyectos/sistema-recibos-2-tasas-2-monedas-sire";
 import {
   Box,
   Button3D,
@@ -26,35 +21,19 @@ import {
   Image,
 } from "~components/ui";
 
-const images = [
-  img0,
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-];
+const images = [img0, img1, img2, img3, img4, img5, img6, img7];
 ---
 
 <Layout>
-  <Box class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center p-4 sm:px-6 lg:px-8 lg:py-6">
-    <Heading as="h2" class="pb-3 text-center text-primary">
-      Sistema de Información Web para la Gestión de Servicios en la Clínico
-      Hinestroza Ferrer C.A
+  <Box class="flex w-screen flex-col items-center justify-center p-4">
+    <Heading as="h2" class="pb-7 text-center">
+      Sistema de Recibos 2 Tasas 2 monedas SIRE 2T
     </Heading>
-    <p class="mb-4 max-w-3xl text-center text-sm text-slate-600 sm:text-base">
-      Plataforma desarrollada para agilizar procesos clínicos, mejorar el control operativo y facilitar la gestión diaria del laboratorio.
-    </p>
-    <Flex class="mb-6 w-full border-t border-dashed border-neutral-400" />
+    <Flex
+      class="hidden w-full border-t border-dashed border-neutral-600 lg:block lg:pb-10"
+    />
     <section
-      class="surface-card relative flex w-full max-w-screen flex-col items-center justify-center rounded-2xl p-3 lg:max-w-5xl lg:p-5"
+      class="relative flex max-w-screen flex-col items-center justify-center p-4 lg:max-w-400"
     >
       <div
         id="carousel"
@@ -80,7 +59,6 @@ const images = [
         <button class="next-btn btn btn-circle"><ChevronRight /></button>
       </div>
       <div class="mt-2 flex w-full justify-center lg:gap-3">
-      <div class="mt-2 flex w-full justify-center lg:gap-3">
         {
           images.map((_, index) => (
             <button class="indicator-btn" data-index={index}>
@@ -90,29 +68,36 @@ const images = [
         }
       </div>
     </section>
-    <Section class="my-8 flex max-w-5xl flex-col gap-3 rounded-2xl text-justify lg:my-10">
+    <Section class="flex flex-col gap-3 text-justify lg:my-10">
       <Paragraph
-        >Éste sistema fue diseñado en base a la identidad organizativa ya
-        establecida de laboratorio, como medio principal se estableció la
-        simplicidad e intuitividad para el uso ya que si personal no poseeía
-        conocimiento previo en referencia a los sistemas informáticos.
+        >Éste sistema de recibos para pequeños negocios fue diseñado para
+        garantizar simplicidad e intuitividad, permitiendo que cualquier
+        empleado sin conocimientos de sistemas de gestión pueda manejarlo con
+        facilidad, desarrollado en un entorno local que además, puede funcionar
+        con dos o más equipos a la vez, integrando el inventario y despachos en
+        un mismo sistema, todo desde un equipo principal. De esta forma se
+        elimina la necesidad de una conexión estable 24/7 y se reducen los
+        tiempos de carga y espera.
       </Paragraph>
       <Paragraph>
-        Dicho sistema consta de tres líneas jerárquicas siendo la de mayor rango
-        la propietaria del laboratorio, en el segundo nivel la administradora y
-        como tercer nivel la bioanalista y asistente de bioanálisis.
+        Además, este sistema cuenta con un apartado automático de gestión de
+        usuarios totalmente autónomo desde el equipo administrador o principal,
+        alimentando el resto. Totalmente personalizable y adaptable según su
+        negocio o emprendimiento, podemos realizarlo a una tasa dos monedas o
+        según la modalidad que usted lo requiera, un beneficio muy destacado de
+        este sistema es la permisibilidad de observación al final del día de tus
+        operaciones. Dando como resultado final la impresión del recibo con su
+        descripción.
       </Paragraph>
       <Paragraph
-        >Cabe destacar qué, a pesar de ser web el sistema cuenta con un respaldo
-        local. Sin dejar de lado el formato provisional también diseñado para
-        ellos en caso de fluctuaciones eléctricas. Nuestro cliente fue muy
-        específico en temas de cuadros y tablas por ello se diseñaron a
-        comodidad del mismo.</Paragraph
+        >SIRE 2T2M cuenta con un mes de garantía post instalación y es de bajo
+        mantenimiento, puedes ver este sistema implementado en ABASTO KAIROS
+        C.A.</Paragraph
       >
     </Section>
   </Box>
   <Section
-    class="flex flex-col items-center justify-center bg-neutral-400/90 px-4 py-10 text-white lg:px-15 lg:py-20"
+    class="flex flex-col items-center justify-center bg-neutral-400 px-4 py-10 text-white lg:px-15 lg:py-20"
   >
     <Heading class="mb-8 hidden text-center text-black lg:block">
       ¿Te gustaría optar un sistema como éste?

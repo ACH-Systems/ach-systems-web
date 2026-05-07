@@ -15,5 +15,6 @@ export { default as Nosotros3 } from "./nosotros/nosotros3.webp";
 
 export { default as sistemaHistorialMedicoLosOlivosThumb } from "./proyectos/sistema-historial-medico-los-olivos-thumb.jpg";
 export { default as sistemaWebLaboratorioHinestrozaFerrerThumb } from "./proyectos/sistema-web-laboratorio-hinestroza-ferrer-thumb.jpg";
+export { default as sistemaRecibos2Tasas2MonedasSireThumb } from "./proyectos/sistema-recibos-2-tasas-2-monedas-sire-thumb.png";
 
 export { default as Logo } from "./logo.png";
