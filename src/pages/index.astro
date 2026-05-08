@@ -135,7 +135,9 @@ const homeSchema = {
         </Paragraph>
         <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
           <a href="./contacto/" class="inline-flex w-full sm:w-auto">
-            <Button3D class="!w-full !min-w-0 sm:!w-52"
+            <Button3D
+              containerClass="w-full sm:w-auto"
+              class="!w-full !min-w-0 !py-2.5"
               >Solicitar asesoría</Button3D
             >
           </a>
@@ -152,7 +154,7 @@ const homeSchema = {
 
   <Section class="px-4 py-12 sm:px-6 lg:px-8 lg:py-18">
     <Heading
-      class="text-primary pb-4 text-center text-3xl font-extrabold uppercase sm:text-4xl lg:pb-10 lg:text-5xl"
+      class="text-accent pb-4 text-center text-3xl font-extrabold capitalize sm:text-4xl lg:pb-10 lg:text-5xl"
       >Descubre nuestros servicios</Heading
     >
     <Paragraph
@@ -259,7 +261,7 @@ const homeSchema = {
       </Paragraph>
     </Article>
     <a href="./contacto/" class="flex justify-center">
-      <Button3D color="bg-neutral-500" class="w-50 text-white"
+      <Button3D color="bg-neutral-500" containerClass="w-full lg:w-50" class="!w-full lg:w-50 text-white"
         >¡Deseo automatizarme!</Button3D
       >
     </a>
