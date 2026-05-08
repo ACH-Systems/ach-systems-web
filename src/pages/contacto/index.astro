@@ -11,6 +11,7 @@ import {
   Heading,
   Image,
   Section,
+  Box
 } from "~components/ui";
 ---
 
@@ -22,9 +23,17 @@ import {
   <Section
     class="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-start lg:gap-10 lg:px-8 lg:py-14"
   >
-    <Article class="surface-card order-2 flex w-full flex-col items-center rounded-2xl p-4 text-center md:order-2 lg:p-6">
-      <Heading class="mb-3 hidden text-center text-primary lg:block">CONTACTO DIRECTO:</Heading>
-      <p class="mb-3 block text-center text-2xl font-bold text-primary lg:hidden">CONTACTO DIRECTO:</p>
+    <Article
+      class="surface-card order-2 flex w-full flex-col items-center rounded-2xl p-4 text-center md:order-2 lg:p-6"
+    >
+      <Heading class="text-primary mb-3 hidden text-center lg:block"
+        >CONTACTO DIRECTO:</Heading
+      >
+      <p
+        class="text-primary mb-3 block text-center text-2xl font-bold lg:hidden"
+      >
+        CONTACTO DIRECTO:
+      </p>
       <p class="mb-4 text-sm text-slate-600">
         Respuesta rápida por redes, correo o WhatsApp.
       </p>
@@ -34,10 +43,20 @@ import {
         loading="eager"
         class="mb-5 rounded-xl border border-slate-200 shadow-md"
       />
-      <Heading as="h2" class="mb-5 hidden text-center text-primary lg:block">ENCUÉNTRANOS EN:</Heading>
-      <h2 class="mb-5 block text-center text-2xl font-bold text-primary lg:hidden">ENCUÉNTRANOS EN:</h2>
+      <Heading as="h2" class="text-primary mb-5 hidden text-center lg:block"
+        >ENCUÉNTRANOS EN:</Heading
+      >
+      <h2
+        class="text-primary mb-5 block text-center text-2xl font-bold lg:hidden"
+      >
+        ENCUÉNTRANOS EN:
+      </h2>
       <Grid class="mb-5 grid-cols-5 gap-x-2 lg:mb-0 lg:gap-x-4">
-        <a target="_blank" href="https://www.instagram.com/achsystems" class="inline-flex">
+        <a
+          target="_blank"
+          href="https://www.instagram.com/achsystems"
+          class="inline-flex"
+        >
           <Button
             bgColor="bg-gradient-to-tr from-yellow-500 via-pink-600 to-blue-500 rounded-xl"
           >
@@ -53,7 +72,10 @@ import {
             </Flex>
           </Button>
         </a>
-        <a target="_blank" href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/">
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/ach-systems-2025-4146700191-/"
+        >
           <Button bgColor="bg-[#0a66c2] rounded-xl">
             <Flex class="flex items-center justify-center">
               <LinkedIn class="size-6 fill-white lg:size-8" />
@@ -76,10 +98,15 @@ import {
         </a>
       </Grid>
     </Article>
-    <Article class="surface-card order-1 flex w-full flex-col rounded-2xl p-4 md:order-1 lg:p-7">
-      <Heading as="h2" class="mb-2 text-primary">Solicita una asesoría personalizada</Heading>
+    <Article
+      class="surface-card order-1 flex w-full flex-col rounded-2xl p-4 md:order-1 lg:p-7"
+    >
+      <Heading as="h2" class="text-primary mb-2"
+        >Solicita una asesoría personalizada</Heading
+      >
       <p class="mb-5 text-sm text-slate-600">
-        Cuéntanos tu necesidad y te responderemos con una propuesta de solución adaptada a tu negocio.
+        Cuéntanos tu necesidad y te responderemos con una propuesta de solución
+        adaptada a tu negocio.
       </p>
       <form
         action="https://formspree.io/f/xkgbrojp"
@@ -119,33 +146,37 @@ import {
         </fieldset>
 
         <fieldset class="fieldset">
-          <legend class="fieldset-legend">Motivo de solicitud</legend>
-
-          {
-            [
-              "Sistema para Empresa Personal",
-              "Sistema de Gestión",
-              "Sistema Médico / Consultorio / Historias Médicas",
-              "Sistema Administrativo",
-              "Otro / Necesito Asesoría",
-            ].map((option, optionIndex) => {
-              const id = optionIndex + 1;
-              return (
-                <div>
-                  <label for={`motive-${id}`} class="cursor-pointer">
+          <legend class="fieldset-legend"
+            >¿Qué tipo de sistema necesitas?</legend
+          >
+          <div class="grid gap-3 md:grid-cols-2">
+            {
+              [
+                "Sistema para Empresa",
+                "Sistema de Gestión",
+                "Sistema Médico",
+                "Sistema Administrativo",
+                "Otro / Asesoría",
+              ].map((option, optionIndex) => {
+                const id = `motive-${optionIndex + 1}`;
+                return (
+                  <label
+                    for={id}
+                    class="hover:border-accent hover:bg-accent/5 flex cursor-pointer items-center gap-3 rounded-lg border border-neutral-200 p-3 transition-all"
+                  >
                     <input
                       type="radio"
                       name="Motivo de solicitud"
-                      id={`motive-${id}`}
+                      id={id}
                       value={option}
-                      class="radio mr-2 border-neutral-600"
+                      class="radio radio-sm radio-accent"
                     />
-                    {option}
+                    <span class="text-sm text-neutral-700">{option}</span>
                   </label>
-                </div>
-              );
-            })
-          }
+                );
+              })
+            }
+          </div>
         </fieldset>
 
         <fieldset class="fieldset">
@@ -160,5 +191,50 @@ import {
       </form>
       <Article />
     </Article>
+
+    <Box
+      class="from-primary to-secondary rounded-2xl bg-gradient-to-br p-6 text-white lg:p-8"
+    >
+      <Heading as="h3" class="mb-4 text-xl font-bold"
+        >Horario de atención</Heading
+      >
+      <div class="flex flex-col gap-2 text-white/80">
+        <p class="flex items-center gap-2">
+          <svg
+            class="text-accent h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Lunes a Viernes: 8:00 AM - 8:00 PM
+        </p>
+        <p class="flex items-center gap-2">
+          <svg
+            class="text-accent h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Sábados: 9:00 AM - 5:00 PM
+        </p>
+      </div>
+      <div class="mt-6 border-t border-white/20 pt-4">
+        <p class="text-sm text-white/70">
+          * Las asesorías técnicas pueden programarse fuera del horario habitual
+        </p>
+      </div>
+    </Box>
   </Section>
 </Layout>

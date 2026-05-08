@@ -108,22 +108,36 @@ const homeSchema = {
       loading="eager"
       class="h-[64vh] w-full object-cover md:h-[calc(100vh-80px)]"
     />
-    <Box class="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/45 to-transparent" />
-    <div class="absolute inset-0 mx-auto flex w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-      <Article class="surface-card max-w-xl rounded-2xl p-4 text-white !border-white/15 !bg-slate-950/55 shadow-2xl shadow-black/35 backdrop-blur-md sm:p-6 md:p-7">
-        <p class="mb-2 text-[10px] font-bold tracking-[0.14em] text-accent sm:mb-3 sm:text-xs md:text-sm">
+    <Box
+      class="from-primary/85 via-primary/45 absolute inset-0 bg-gradient-to-r to-transparent"
+    />
+    <div
+      class="absolute inset-0 mx-auto flex w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8"
+    >
+      <Article
+        class="surface-card max-w-xl rounded-2xl !border-white/15 !bg-slate-950/55 p-4 text-white shadow-2xl shadow-black/35 backdrop-blur-md sm:p-6 md:p-7"
+      >
+        <p
+          class="text-accent mb-2 text-[10px] font-bold tracking-[0.14em] sm:mb-3 sm:text-xs md:text-sm"
+        >
           SOFTWARE HECHO A LA MEDIDA
         </p>
-        <Heading class="mb-3 text-2xl leading-tight text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
+        <Heading
+          class="mb-3 text-2xl leading-tight text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl"
+        >
           Diseñamos sistemas que simplifican tu operación diaria.
         </Heading>
-        <Paragraph class="mb-4 text-xs leading-relaxed text-slate-100 sm:mb-6 sm:text-sm md:text-base">
-          Ayudamos a clínicas, comercios y emprendimientos a digitalizar procesos
-          con soluciones intuitivas, personalizadas y escalables.
+        <Paragraph
+          class="mb-4 text-xs leading-relaxed text-slate-100 sm:mb-6 sm:text-sm md:text-base"
+        >
+          Ayudamos a clínicas, comercios y emprendimientos a digitalizar
+          procesos con soluciones intuitivas, personalizadas y escalables.
         </Paragraph>
         <div class="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
           <a href="./contacto/" class="inline-flex w-full sm:w-auto">
-            <Button3D class="!w-full !min-w-0 sm:!w-52">Solicitar asesoría</Button3D>
+            <Button3D class="!w-full !min-w-0 sm:!w-52"
+              >Solicitar asesoría</Button3D
+            >
           </a>
           <a
             href="./proyectos/"
@@ -138,34 +152,52 @@ const homeSchema = {
 
   <Section class="px-4 py-12 sm:px-6 lg:px-8 lg:py-18">
     <Heading
-      class="pb-4 text-center text-3xl font-extrabold uppercase text-primary sm:text-4xl lg:pb-10 lg:text-5xl"
+      class="text-primary pb-4 text-center text-3xl font-extrabold uppercase sm:text-4xl lg:pb-10 lg:text-5xl"
       >Descubre nuestros servicios</Heading
     >
-    <Paragraph class="mx-auto mb-8 max-w-3xl text-center text-sm text-slate-600 sm:text-base lg:mb-12">
+    <Paragraph
+      class="mx-auto mb-8 max-w-3xl text-center text-sm text-slate-600 sm:text-base lg:mb-12"
+    >
       Combinamos análisis, desarrollo y acompañamiento para construir sistemas
       que se adapten a tu negocio, no al revés.
     </Paragraph>
-    <div class="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:gap-6" data-stagger>
+    <div
+      class="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:gap-6"
+      data-stagger
+    >
       {
-        services.map((service) => (
-          <Article class="surface-card rounded-2xl p-4 sm:p-5">
-            <Flex class="mb-2 flex-row items-center">
-              {service.icon && (
-                <service.icon class="mr-2 size-6 rounded-lg bg-primary/10 p-1 text-primary sm:size-8 sm:p-1.5" />
-              )}
-              <Heading as="h3" class="text-lg text-primary sm:text-xl">{service.title}</Heading>
+        services.map((service, index) => (
+          <Article
+            class="service-card group hover:border-accent/20 relative overflow-hidden rounded-2xl border border-transparent bg-white p-4 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="bg-accent/5 absolute top-0 right-0 h-32 w-32 translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-500 group-hover:scale-150" />
+            <Flex class="mb-4 flex-row items-center gap-4">
+              <div class="bg-accent/10 group-hover:bg-accent rounded-xl p-3 transition-all duration-300 group-hover:text-white">
+                {service.icon && (
+                  <service.icon class="text-accent size-7 group-hover:text-white md:size-8" />
+                )}
+              </div>
+              <Heading
+                as="h3"
+                class="text-xl font-bold text-neutral-800 lg:text-2xl"
+              >
+                {service.title}
+              </Heading>
             </Flex>
-            <Paragraph class="text-sm text-slate-700 sm:text-base">
+            <Paragraph class="text-base leading-relaxed text-neutral-600 lg:text-lg">
               {service.description}
             </Paragraph>
           </Article>
         ))
       }
-    </Flex>
+    </div>
   </Section>
 
   <Section class="px-4 py-10 text-white sm:px-6 lg:px-8 lg:py-16">
-    <Box class="mx-auto max-w-6xl rounded-3xl border border-slate-300/70 bg-primary p-3 shadow-2xl shadow-slate-900/20 lg:p-5">
+    <Box
+      class="bg-primary mx-auto max-w-6xl rounded-3xl border border-slate-300/70 p-3 shadow-2xl shadow-slate-900/20 lg:p-5"
+    >
       <Box class="rounded-2xl border border-slate-500/60 p-4 lg:p-8 lg:px-20">
         <Flex class="flex-col justify-center text-center">
           <Heading class="mb-3 hidden text-4xl/13 text-white lg:block">
@@ -186,8 +218,10 @@ const homeSchema = {
     </Box>
   </Section>
 
-  <Section class="flex flex-col justify-center px-4 py-10 sm:px-6 lg:px-8 lg:py-18">
-    <Flex class="mb-10 flex-col gap-6 text-center hidden lg:block">
+  <Section
+    class="flex flex-col justify-center px-4 py-10 sm:px-6 lg:px-8 lg:py-18"
+  >
+    <Flex class="mb-10 hidden flex-col gap-6 text-center lg:block">
       <Heading class="text-5xl">
         ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
       </Heading>
@@ -196,7 +230,7 @@ const homeSchema = {
         ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
       </Heading>
     </Flex>
-    <Flex class="mb-10 flex-col gap-6 text-center block lg:hidden">
+    <Flex class="mb-10 block flex-col gap-6 text-center lg:hidden">
       <p class="text-3xl font-semibold">
         ¿MIEDO AL <Text class="text-accent">CAMBIO</Text>?
       </p>
@@ -205,7 +239,9 @@ const homeSchema = {
         ¿MIEDO AL <Text class="text-accent">MEJORAR</Text>?
       </p>
     </Flex>
-    <Article class="surface-card mx-auto mb-10 max-w-5xl rounded-2xl px-5 py-6 text-justify text-lg sm:px-7">
+    <Article
+      class="surface-card mx-auto mb-10 max-w-5xl rounded-2xl px-5 py-6 text-justify text-lg sm:px-7"
+    >
       <Paragraph class="mb-4">
         Si, es cierto... Una empresa productiva no puede detenerse, pero ¿quién
         dijo que necesita hacerlo para mejorar?... Ahhh espere, usted tiene
@@ -237,7 +273,9 @@ const homeSchema = {
       ]}
     />
     <Flex class="absolute inset-0 mx-3 items-center justify-center lg:mx-10">
-      <Heading class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30">
+      <Heading
+        class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30"
+      >
         <Text class="rounded-lg bg-black/55 px-3 py-1"
           >EVITA PERDER EL ÓRDEN DE LAS HISTORIAS DE SUS PACIENTES</Text
         >
@@ -246,8 +284,13 @@ const homeSchema = {
   </Section>
 
   <Section class="px-4 py-10 sm:px-6 lg:px-8 lg:py-18">
-    <div class="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-2 lg:gap-8" data-stagger>
-      <Article class="surface-card order-2 flex flex-col justify-center rounded-2xl p-5 lg:order-1 lg:p-7">
+    <div
+      class="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-2 lg:gap-8"
+      data-stagger
+    >
+      <Article
+        class="surface-card order-2 flex flex-col justify-center rounded-2xl p-5 lg:order-1 lg:p-7"
+      >
         <Heading class="mb-10 text-center leading-12 uppercase"
           >&ldquo;Soy personal del área de salud y pienso que las <Text
             class="text-accent">historias médicas manuales</Text
@@ -296,18 +339,31 @@ const homeSchema = {
         "absolute inset-0 flex w-auto items-center justify-center bg-[url('../src/assets/img/home/bg2.webp')] bg-cover bg-fixed bg-center bg-no-repeat",
       ]}
     />
-    <Flex class="absolute inset-0 mx-2 flex-col items-center justify-center lg:mx-10">
-      <Heading class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30">
-        <Text class="rounded-lg bg-black/55 px-3 py-1">EVITA EL DESASTRE EN PAPEL</Text>
+    <Flex
+      class="absolute inset-0 mx-2 flex-col items-center justify-center lg:mx-10"
+    >
+      <Heading
+        class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30"
+      >
+        <Text class="rounded-lg bg-black/55 px-3 py-1"
+          >EVITA EL DESASTRE EN PAPEL</Text
+        >
       </Heading>
-      <Heading class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30">
-        <Text class="rounded-lg bg-black/55 px-3 py-1">&lt;&lt; AUTOMATIZATE YA &gt;&gt;</Text>
+      <Heading
+        class="text-center text-3xl/12 text-white uppercase sm:text-4xl/14 lg:text-6xl/30"
+      >
+        <Text class="rounded-lg bg-black/55 px-3 py-1"
+          >&lt;&lt; AUTOMATIZATE YA &gt;&gt;</Text
+        >
       </Heading>
     </Flex>
   </Section>
 
   <Section class="px-4 py-10 sm:px-6 lg:px-8 lg:py-18">
-    <div class="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-2 lg:gap-8" data-stagger>
+    <div
+      class="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-2 lg:gap-8"
+      data-stagger
+    >
       <Aside
         ><Image
           src={HomeAside3}
@@ -316,7 +372,9 @@ const homeSchema = {
           class="mb-4 w-full rounded-xl shadow-lg shadow-slate-900/12 lg:mb-0"
         />
       </Aside>
-      <Article class="surface-card flex flex-col justify-center rounded-2xl p-5 lg:p-7">
+      <Article
+        class="surface-card flex flex-col justify-center rounded-2xl p-5 lg:p-7"
+      >
         <Heading class="mb-10 text-center leading-12 uppercase">
           &ldquo;Tengo un comercio y deseo un <Text class="text-accent"
             >sistema sólo de recibos e inventarios</Text
@@ -337,7 +395,7 @@ const homeSchema = {
           <Button3D color="bg-neutral-300">Consulta aquí</Button3D>
         </a>
       </Article>
-    </Box>
+    </div>
   </Section>
 
   <Section class="relative h-[62vh] overflow-hidden lg:h-[75vh]">
@@ -348,12 +406,14 @@ const homeSchema = {
       ]}
     />
     <Flex class="absolute inset-0 mx-4 items-center justify-center lg:mx-10">
-      <Heading class="text-center text-3xl/11 text-white uppercase sm:text-4xl/13 lg:text-6xl/30">
+      <Heading
+        class="text-center text-3xl/11 text-white uppercase sm:text-4xl/13 lg:text-6xl/30"
+      >
         <Text class="rounded-lg bg-black/55 px-3 py-1"
           >¿USTED TIENE DIFICULTAD PARA UTILIZAR LAS FUNCIONES BÁSICAS DE SU
           TELÉFONO?
-        </Heading>
-      </Box>
+        </Text>
+      </Heading>
     </Flex>
   </Section>
 
@@ -375,34 +435,38 @@ const homeSchema = {
     </Article>
   </Section>
 
-  <Section class="px-4 py-10 sm:px-6 lg:px-8 lg:py-18">
-    <div class="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-2 lg:gap-6" data-stagger>
-      <Article class="surface-card flex flex-col justify-center rounded-2xl p-5 lg:p-7">
-        <Heading class="mb-4 lg:mb-10 text-center leading-12 uppercase"
-          >&ldquo;<Text class="text-accent"
-            >No tengo idea de lo que necesito</Text
-          > para automaticar mis actividades&rdquo;</Heading
+  <Section class="px-4 py-16 lg:py-24">
+    <div
+      class="mx-auto max-w-6xl items-center px-4 lg:grid lg:grid-cols-2 lg:gap-16 lg:px-10"
+    >
+      <Article class="reveal-left mb-10 flex flex-col justify-center lg:mb-0">
+        <span
+          class="text-accent mb-2 text-sm font-semibold tracking-wider uppercase"
+          >Asesoría Gratis</span
         >
-        <Paragraph class="mb-10 text-justify text-lg">
-          ¡No se preocupe! Tenemos asesoria gratuita, sólo debe llenar el
-          formulario de contacto y podrá agendar una de nuestras visitas
-          técnicas. Si desea realizar el proceso de forma rápida, puede
-          contactarnos a través de nuestros teléfonos, redes sociales o correo
-          electrónico y le enviaremos un ingeniero capacitado para determinar e
-          indicarle los requerimientos para un sistema adaptado a las
-          necesidades de su negocio, según el equipo que maneje y el
-          conocimiento de su personal.
+        <Heading
+          class="mb-6 text-center text-2xl leading-tight font-bold text-neutral-800 md:text-3xl lg:text-4xl"
+          ><span class="text-neutral-600">"</span>No tengo idea de lo que
+          necesito<Text class="text-accent"> para automatizar</Text><span
+            class="text-neutral-600">"</span
+          ></Heading
+        >
+        <Paragraph class="mb-8 text-lg leading-relaxed text-neutral-600">
+          ¡No se preocupe! Brindamos asesoría gratuita. Solo complete el
+          formulario de contacto para agendar una visita técnica. Un ingeniero
+          capacitado evaluará su negocio para determinar los requerimientos
+          ideales para un sistema adaptado a sus necesidades.
         </Paragraph>
-        <a href="./contacto/" class="flex justify-center">
-          <Button3D color="bg-neutral-300">Contáctanos</Button3D>
+        <a href="/contacto/" class="flex justify-center">
+          <Button3D color="bg-accent" class="text-white">Contáctanos</Button3D>
         </a>
       </Article>
-      <Aside class="flex items-center justify-center"
+      <Aside class="reveal-right"
         ><Image
           src={HomeAside4}
-          alt=""
+          alt="Equipo ACH Systems - Expertos en tecnología"
           loading="eager"
-          class="w-full rounded-xl shadow-lg shadow-slate-900/12"
+          class="hover:shadow-accent/20 w-full rounded-2xl shadow-2xl transition-all duration-300"
         />
       </Aside>
     </div>
